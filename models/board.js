@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     title: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
+      unique: true,
       allowNull: false
     },
     date: {
