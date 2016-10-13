@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const models = require('../models')
+const create_thread = require('../bin/create_thread')
 
 router.get('/:board/all', (req, res, next) => {
   let jsonThreads
@@ -16,5 +17,13 @@ router.get('/:board/all', (req, res, next) => {
     res.json(jsonThreads)
   })
 })
+
+router.post('/:board', (req, res, next) => {
+  if (create_thread.create_thread(req.params.board, req.params.title)) {
+    return "ok"
+  else {
+    return "ng"
+  }
+}
 
 module.exports = router
