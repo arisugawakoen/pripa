@@ -21,9 +21,9 @@ router.get('/:board/all', (req, res, next) => {
 router.post('/:board', (req, res, next) => {
   if (create_thread.create_thread(req.params.board, req.params.title)) {
     return "ok"
-  else {
+  }  else {
     return "ng"
   }
-}
+})
 
 module.exports = router
