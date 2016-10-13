@@ -5,12 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// 削除予定
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var boards = require('./routes/boardApi');
+var threads = require('./routes/threadApi');
+
 var app = express();
 
-// view engine setup
+// view engine setup 削除予定
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -22,8 +26,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 削除予定
 app.use('/', routes);
 app.use('/users', users);
+
+app.use('/boards', boards);
+app.use('/threads', threads);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
