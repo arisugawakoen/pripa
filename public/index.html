@@ -19,17 +19,22 @@
   </div>
 </section>
 <div class="columns">
-  <div class="column is-one-quarter">
-    <nav class="menu">
+  <div class="column is-2">
+    <aside class="menu">
       <p class="menu-label">
-        panel-head
+        menu-head
       </p>
-    </nav>
+      <ul class="menu-list">
+        <li><a href="#">menu-content</a></li>
+        <li><a href="#">menu-content</a></li>
+        <li><a href="#">menu-content</a></li>
+      </ul>
+    </aside>
   </div>
-  <div class="column is-three-quarters">
+  <div class="column is-10">
     <div class="container">
       <div class="notification is-danger">
-        スレッド一覧
+        スレッド一覧表示
       </div>
       <div class="message is-danger">
         <div class="message-body">
@@ -70,14 +75,21 @@
             <small><strong>5</strong> 2016-10-12 Friday 11:13</small>
           </div>
         </div>
-        <footer class="control">
+        <footer style="padding: 8px;">
+          <a class="button is-info">Post</a>
           <div class="control is-horizontal">
-          <p class="control">
-            <input class="input" type="text" placeholder="Name">
-          </p>
-          <p class="control">
-            <input class="input" type="email" placeholder="Mail">
-          </p>
+            <div class="control has-addons">
+              <input class="input is-info" type="text" placeholder="Name">
+              <input class="input is-info" type="email" placeholder="Mail">
+              <a class="button is-info">
+                Post
+              </a>
+            </div>
+          </div>
+          <div class="control is-horizontal">
+            <div class="control">
+              <textarea class="textarea is-info" placeholder="article"></textarea>
+            </div>
           </div>
         </footer>
       </div>
