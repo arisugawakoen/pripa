@@ -3,7 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const models = require('../models')
-const create_thread = require('../bin/create_thread')
+const moment = require('moment')
 
 router.get('/:board/all', (req, res, next) => {
   let jsonThreads
@@ -18,11 +18,32 @@ router.get('/:board/all', (req, res, next) => {
   })
 })
 
-router.post('/:board', (req, res, next) => {
-  if (create_thread.create_thread(req.params.board, req.params.title)) {
-    return "ok"
-  }  else {
-    return "ng"
+router.post('/:body', (req, res, next) => {
+  let name
+  let mail
+
+  if (req.body.title && req.body.post) {
+    name = req.body.name || null
+    mail = req.body.mail || null
+    models.board.findOne({
+      attributes: ['id'],
+      where: {
+        title: req.body.board
+      }
+    }).then((result) => {
+      if (result) {
+        models.board.sequelize.query(
+          "insert into threads (title, board_id, date, post, name, mail) value ($1, (select id from boards where title=$2 ), $3, $4, $5, $6)",
+          { bind: [req.body.title, req.body.board, moment().format(), req.body.post, name, mail]}
+        ).then(() => {
+          res.send('ok')
+        })
+      } else {
+        res.send('ng')
+      }
+    })
+  } else {
+    res.send('ng')
   }
 })
 

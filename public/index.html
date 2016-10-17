@@ -51,19 +51,7 @@
         </p>
       </div>
 
-      <div class="control is-horizonral">
-        <div class="control has-addons">
-          <input class="input is-expanded is-danger" type="string" placeholder="title">
-          <input class="input is-danger" type="text" placeholder="Name">
-          <input class="input is-danger" type="email" placeholder="Mail">
-          <a class="button is-danger">スレッド作成</a>
-        </div>
-      </div>
-      <div class="control is-horizontal">
-        <div class="control">
-          <textarea class="textarea is-danger" placeholder="article"></textarea>
-        </div>
-      </div>
+<thread-create board="test"></thread-create>
 
       <div class="message is-danger">
         <div class="message-body">
@@ -144,8 +132,8 @@
 </footer>
 <script src="./javascripts/fetch.min.js"></script>
 <script src="./javascripts/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.3/riot.min.js"></script>
-<script src="./javascripts/tag.min.js" charset="UTF-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.4/riot+compiler.min.js"></script>
+<script type="riot/tag" src="./javascripts/tag/thread_create.tag"></script>
 
 <script type="text/javascript">
   riot.mount('*')

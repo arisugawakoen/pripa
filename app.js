@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 削除予定
-app.use('/', routes);
+//app.use('/', routes);
 app.use('/users', users);
 
 app.use('/boards', boards);
