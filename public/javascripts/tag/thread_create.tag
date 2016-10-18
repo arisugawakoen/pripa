@@ -18,6 +18,7 @@
  
     var fetchUrl = './'
     var self = this
+    el = riot.observable()
 
     createThread(title, board, post, name, mail) {
       fetch(fetchUrl + 'threads/' + board, {
@@ -35,6 +36,7 @@
         })
       }).then(() => {
         self.update()
+        el.trigger('allThreadUpdate')
       })
     }
 

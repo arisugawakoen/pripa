@@ -23,4 +23,8 @@
 
     this.allThread()
 
+    el.on('allThreadUpdate', () => {
+      this.allThread()
+    })
+
 </thread-all>

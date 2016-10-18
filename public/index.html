@@ -55,9 +55,7 @@
 <thread-all board="test"></thread-all>
 <thread-list board="test"></thread-list>
 
-
-
-
+select * from (select * from threads order by date DESC limit 4) as n order by id ASC;
 
     </div>
   </div>

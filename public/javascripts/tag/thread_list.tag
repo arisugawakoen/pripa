@@ -61,4 +61,8 @@
 
     this.listThread()
 
+    el.on('allThreadUpdate', () => {
+      this.listThread()
+    })
+
 </thread-list>
