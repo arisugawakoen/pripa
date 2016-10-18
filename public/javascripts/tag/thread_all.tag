@@ -1,11 +1,8 @@
 <thread-all>
-  <div class="message is-danger">
+  <div class="message is-danger" style="margin-bottom: 1em;">
     <div class="message-body">
-
-スレッド一覧
-
-<span each={ results }>{ title } </span>
-
+      スレッド一覧
+      <span each={ results }>{ title } </span>
     </div>
   </div>
 

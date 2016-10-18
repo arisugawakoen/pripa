@@ -1,89 +1,55 @@
-<thread-all>
+<thread-list>
 
   <div each={ results }>
-    <div class="card is-fullwidth">
+    <div class="card is-fullwidth" style="margin-bottom: 1em;">
       <header class="card-header">
         <p class="card-header-title">
-            スレッドタイトル
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            スレッドコンテンツあああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-            <br>
-            <small><strong>1</strong> 2016-10-12 Friday 11:09</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>2</strong> 2016-10-12 Friday 11:10</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>3</strong> 2016-10-12 Friday 11:11</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>4</strong> 2016-10-12 Friday 11:12</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>5</strong> 2016-10-12 Friday 11:13</small>
-          </div>
+          { title }
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          { post }
+          <br>
+          <small><strong>{ name }</strong> { moment(date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
         </div>
-        <div class="tabs" style="margin-bottom: 0px;">
-          <ul>
-            <li><a>全表示</a></li>
-            <li><a>最新表示</a></li>
-            <li><a>先頭表示</a></li>
-            <li><a>返信</a></li>
-          </ul>
-        </div>
-        <footer style="padding: 1em;">
-          <div class="control is-horizontal">
-            <div class="control has-addons">
-              <input class="input is-info" type="text" placeholder="Name">
-              <input class="input is-info" type="email" placeholder="Mail">
-              <a class="button is-info">
-                Post
-              </a>
-            </div>
-          </div>
-          <div class="control is-horizontal">
-            <div class="control">
-              <textarea class="textarea is-info" placeholder="article"></textarea>
-            </div>
-          </div>
-        </footer>
       </div>
-  </div>
-
-
-
-
-
-
-
-
-  <div class="message is-danger">
-    <div class="message-body">
-
-スレッド一覧
-
-<span each={ results }>{ title } </span>
-
+      <div class="tabs is-small" style="margin-bottom: 0px;">
+        <ul>
+          <li><a>全表示</a></li>
+          <li><a>最新表示</a></li>
+          <li><a>先頭表示</a></li>
+          <li><a>返信</a></li>
+        </ul>
+      </div>
+      <footer style="padding: 1em;">
+        <div class="control is-horizontal">
+          <div class="control has-addons">
+            <input class="input is-info" type="text" placeholder="Name">
+            <input class="input is-info" type="email" placeholder="Mail">
+            <a class="button is-info">
+              Post
+            </a>
+          </div>
+        </div>
+        <div class="control is-horizontal">
+          <div class="control">
+            <textarea class="textarea is-info" placeholder="article"></textarea>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 
     var results = []
     var fetchUrl = './'
+    var offset = 0
+    var limit = 30
     var self = this
 
-    allThread() {
-      fetch(fetchUrl + 'threads/' + opts.board + '/all')
+    listThread() {
+      console.log(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + limit)
+      fetch(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + limit)
       .then((res) => {
         return res.json()
       }).then((json) => {
@@ -93,6 +59,6 @@
       })
     }
 
-    this.allThread()
+    this.listThread()
 
-</thread-all>
+</thread-list>

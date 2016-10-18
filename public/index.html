@@ -52,71 +52,10 @@
       </div>
 
 <thread-create board="test"></thread-create>
+<thread-all board="test"></thread-all>
+<thread-list board="test"></thread-list>
 
-      <div class="message is-danger">
-        <div class="message-body">
-          スレッド一覧
-        </div>
-      </div>
 
-      <div class="card is-fullwidth">
-        <header class="card-header">
-          <p class="card-header-title">
-            スレッドタイトル
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            スレッドコンテンツあああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-            <br>
-            <small><strong>1</strong> 2016-10-12 Friday 11:09</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>2</strong> 2016-10-12 Friday 11:10</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>3</strong> 2016-10-12 Friday 11:11</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>4</strong> 2016-10-12 Friday 11:12</small>
-          </div>
-          <div class="content">
-            スレッドコンテンツ
-            <br>
-            <small><strong>5</strong> 2016-10-12 Friday 11:13</small>
-          </div>
-        </div>
-        <div class="tabs" style="margin-bottom: 0px;">
-          <ul>
-            <li><a>全表示</a></li>
-            <li><a>最新表示</a></li>
-            <li><a>先頭表示</a></li>
-            <li><a>返信</a></li>
-          </ul>
-        </div>
-        <footer style="padding: 1em;">
-          <div class="control is-horizontal">
-            <div class="control has-addons">
-              <input class="input is-info" type="text" placeholder="Name">
-              <input class="input is-info" type="email" placeholder="Mail">
-              <a class="button is-info">
-                Post
-              </a>
-            </div>
-          </div>
-          <div class="control is-horizontal">
-            <div class="control">
-              <textarea class="textarea is-info" placeholder="article"></textarea>
-            </div>
-          </div>
-        </footer>
-      </div>
 
 
 
@@ -134,6 +73,8 @@
 <script src="./javascripts/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.4/riot+compiler.min.js"></script>
 <script type="riot/tag" src="./javascripts/tag/thread_create.tag"></script>
+<script type="riot/tag" src="./javascripts/tag/thread_all.tag"></script>
+<script type="riot/tag" src="./javascripts/tag/thread_list.tag"></script>
 
 <script type="text/javascript">
   riot.mount('*')
