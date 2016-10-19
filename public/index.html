@@ -32,7 +32,7 @@
     </aside>
   </div>
   <div class="column is-10">
-    <div class="container" style="padding: 1em;">
+    <div class="container" style="padding-top: 1em;">
       <div class="control is-grouped">
         <p class="control">
           <a class="button is-danger">
@@ -54,8 +54,6 @@
 <thread-create board="test"></thread-create>
 <thread-all board="test"></thread-all>
 <thread-list board="test"></thread-list>
-
-select * from (select * from threads order by date DESC limit 4) as n order by id ASC;
 
     </div>
   </div>

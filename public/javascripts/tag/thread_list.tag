@@ -1,7 +1,7 @@
 <thread-list>
 
   <div each={ results }>
-    <div class="card is-fullwidth" style="margin-bottom: 1em;">
+    <div class="card is-fullwidth" style="margin-bottom: 1em; box-shadow: 0 0 0;">
       <header class="card-header">
         <p class="card-header-title">
           { title }

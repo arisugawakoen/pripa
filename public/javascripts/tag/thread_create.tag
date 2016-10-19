@@ -1,5 +1,5 @@
 <thread-create>
-  <form name="thread_create" onsubmit={ add } style="margin-bottom: 1em;">
+  <form name="thread_create" onsubmit={ add } style="padding: 1em;">
     <div>
     <div class="control is-horizonral">
       <div class="control has-addons">

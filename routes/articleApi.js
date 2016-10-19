@@ -9,7 +9,7 @@ router.get('/:thread_id(\\d+)', (req, res, next) => {
   let jsonArticles
   let thread_id = parseInt(req.params.thread_id)
 
-  models.article.findall({
+  models.article.findAll({
     where: {
       thread_id: thread_id
     },
@@ -27,7 +27,7 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
   let limit = parseInt(req.params.limit)
 
   models.article.sequelize.query(
-    "select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by date DESC limit $2) as n order by id ASC;",
+    "select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;",
     { bind: [thread_id, limit]}
   ).then((articles) => {
     jsonArticles = JSON.stringify(articles)
