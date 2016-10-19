@@ -37,30 +37,28 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 })
 
 router.post('/:thread_id(\\d+)', (req, res, next) => {
-  let thread_id = parseInt(req.params.thread_id)
+  let thread_id = parseInt(req.body.thread_id)
     
   models.article.create({
     post: req.body.post,
     name: req.body.name,
-    create_date: Date(),
+    create_date: moment().add(9, 'h'),
     thread_id : req.body.thread_id
   }).then(() => {
-    res.send('ok')
   }).catch((e) => {
-    res.send('ng')
     console.log(e)
   })
 
   models.thread.update({
-    update_date: Date()
+    update_date: moment().add(9, 'h')
   }, {
     where: {
-      thread_id: thread_id
+      id: thread_id
     }
   }).then(() => {
-    res.send('ok')
+    res.json({ message: 'ok' });
   }).catch((e) => {
-    res.send('ng')
+    res.json({ message: 'ng' });
     console.log(e)
   })
 })

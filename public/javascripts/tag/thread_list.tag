@@ -22,22 +22,9 @@
           <li><a>返信</a></li>
         </ul>
       </div>
-      <footer style="padding: 1em;">
-        <div class="control is-horizontal">
-          <div class="control has-addons">
-            <input class="input is-info" type="text" placeholder="Name">
-            <input class="input is-info" type="email" placeholder="Mail">
-            <a class="button is-info">
-              Post
-            </a>
-          </div>
-        </div>
-        <div class="control is-horizontal">
-          <div class="control">
-            <textarea class="textarea is-info" placeholder="article"></textarea>
-          </div>
-        </div>
-      </footer>
+
+<article-post id={ id }></article-post>
+
     </div>
   </div>
 
