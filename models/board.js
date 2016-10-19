@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       unique: true,
       allowNull: false
     },
-    date: {
+    create_date: {
       type: DataTypes.DATE,
       allowNull: false
     },

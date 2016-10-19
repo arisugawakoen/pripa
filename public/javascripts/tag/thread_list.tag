@@ -11,7 +11,7 @@
         <div class="content">
           { post }
           <br>
-          <small><strong>{ name }</strong> { moment(date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
+          <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
         </div>
       </div>
       <div class="tabs is-small" style="margin-bottom: 0px;">
@@ -48,7 +48,6 @@
     var self = this
 
     listThread() {
-      console.log(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + limit)
       fetch(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + limit)
       .then((res) => {
         return res.json()

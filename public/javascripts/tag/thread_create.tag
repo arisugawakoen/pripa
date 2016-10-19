@@ -20,7 +20,7 @@
     var self = this
     el = riot.observable()
 
-    createThread(title, board, post, name, mail) {
+    createThread(title, board, post, name) {
       fetch(fetchUrl + 'threads/' + board, {
         method: 'POST',
         headers: {
@@ -32,7 +32,6 @@
           board: board,
           post: post,
           name: name,
-          mail: mail
         })
       }).then(() => {
         self.update()
@@ -48,17 +47,13 @@
       this.name = e.target.value
     }
 
-    clickMail(e) {
-      this.mail = e.target.value
-    }
-
     clickPost(e) {
       this.post = e.target.value
     }
 
     add(e) {
       self.createThread(this.title, opts.board, this.post, this.name, '')
-      this.title = this.mail = this.post = this.name = ''
+      this.title = this.post = this.name = ''
       document.thread_create.reset()
     }
 

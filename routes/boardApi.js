@@ -8,7 +8,7 @@ router.get('/all', (req, res, next) => {
   let jsonBoards
 
   models.board.findAll({
-    order: 'date ASC',
+    order: 'create_date ASC',
     attributes: [
       'id', 'title'
     ] 

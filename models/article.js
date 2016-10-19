@@ -14,11 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    board_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    date: {
+    create_date: {
       type: DataTypes.DATE,
       allowNull: false
     },
@@ -26,10 +22,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    mail: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    }
   }, {
     classMethods: {
       associate: function(models) {
