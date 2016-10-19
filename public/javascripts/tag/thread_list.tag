@@ -13,6 +13,9 @@
           <br>
           <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
         </div>
+
+<article-list id={ id }></article-list>
+
       </div>
       <div class="tabs is-small" style="margin-bottom: 0px;">
         <ul>
