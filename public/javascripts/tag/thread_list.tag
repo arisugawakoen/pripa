@@ -22,7 +22,6 @@
           <li><a>全表示</a></li>
           <li><a>最新表示</a></li>
           <li><a>先頭表示</a></li>
-          <li><a>返信</a></li>
         </ul>
       </div>
 
@@ -34,7 +33,7 @@
     var results = []
     var fetchUrl = './'
     var offset = 0
-    var limit = 30
+    var limit = 20
     var self = this
 
     listThread() {

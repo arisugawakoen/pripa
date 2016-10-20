@@ -7,19 +7,19 @@
       </a>
     </p>
     <p class="control">
-      <a class="button is-success" onclick={ toggleArticleList }>
+      <a class="button is-success" onclick={ toggleArticleView }>
         表示変更
       </a>
     </p>
     <p class="control">
-      <a class="button is-info" onclick={ toggleThreadAll }>
+      <a class="button is-primary" onclick={ toggleThreadAll }>
         スレッド一覧表示
       </a>
     </p>
   </div>
 
     var stateThreadCreate = false
-    var stateArticleList = true
+    var stateArticleView = true
     var stateThreadAll = false
     
     toggleThreadCreate() {
@@ -27,9 +27,9 @@
       el.trigger("toggleThreadCreate", this.stateThreadCreate)
     }
 
-    toggleArticleList() {
-      this.stateArticleList = !this.stateArticleList
-      el.trigger("toggleArticleList", this.stateArticleList)
+    toggleArticleView() {
+      this.stateArticleView = !this.stateArticleView
+      el.trigger("toggleArticleView", this.stateArticleView)
     }
 
     toggleThreadAll() {
