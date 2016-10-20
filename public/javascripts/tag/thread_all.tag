@@ -1,11 +1,12 @@
 <thread-all>
-  <div class="message is-danger" style="margin-bottom: 1em;">
+  <div class="message is-danger" style="margin-bottom: 1em;" if={ flagThreadAll }>
     <div class="message-body">
       スレッド一覧
       <span each={ results }>{ title } </span>
     </div>
   </div>
 
+    var flagThreadAll = false
     var results = []
     var fetchUrl = './'
     var self = this
@@ -23,8 +24,13 @@
 
     this.allThread()
 
-    el.on('allThreadUpdate', () => {
+    el.on('allThreadReload', () => {
       this.allThread()
+    })
+
+    el.on('toggleThreadAll', (toggle) => {
+      self.flagThreadAll = toggle
+      self.update()
     })
 
 </thread-all>

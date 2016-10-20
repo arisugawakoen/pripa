@@ -25,4 +25,8 @@
 
     this.listArticle()
 
+    el.on('thisArticleReload', (id) => {
+      if (id == opts.id) this.listArticle()
+    })
+
 </article-list>

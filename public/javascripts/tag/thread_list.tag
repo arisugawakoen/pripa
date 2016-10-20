@@ -50,7 +50,7 @@
 
     this.listThread()
 
-    el.on('allThreadUpdate', () => {
+    el.on('allThreadReload', () => {
       this.listThread()
     })
 

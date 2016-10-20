@@ -5,14 +5,14 @@
       <div class="control is-horizontal">
         <div class="control has-addons">
           <input class="input is-info" type="text" placeholder="Name"
-            onkeyup={ inputName }>
+            name="name" onkeyup={ inputName }>
           <button class="button is-info">Post</button>
         </div>
       </div>
       <div class="control is-horizontal">
         <div class="control">
           <textarea class="textarea is-info" placeholder="Article"
-            onkeyup={ inputArticle }></textarea>
+            name="article" onkeyup={ inputArticle }></textarea>
         </div>
       </div>
     </form>
@@ -22,20 +22,26 @@
     var self = this
 
     postArticle(threadId, name, post) {
-      fetch(fetchUrl + 'articles/' + threadId, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          thread_id: threadId,
-          post: post,
-          name: name,
+      if (post.length) {
+        fetch(fetchUrl + 'articles/' + threadId, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            thread_id: threadId,
+            post: post,
+            name: name,
+          })
+        }).then(() => {
+          el.trigger('allThreadReload')
+          el.trigger('thisArticleReload', threadId)
+          self.update()
         })
-      }).then(() => {
-        self.update()
-      })
+      } else {
+        return false
+      }
     }
 
     inputName(e) {
@@ -49,8 +55,6 @@
     add(e) {
       self.postArticle(opts.id, this.replyName, this.article)
       this.replyName = this.article = ''
-      el.trigger('allThreadUpdate')
-      self.update()
     }
 
 </article-post>
