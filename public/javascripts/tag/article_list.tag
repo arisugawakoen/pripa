@@ -1,6 +1,9 @@
 <article-list>
 
   <div if={ articleListResults.length }>
+
+<hr>
+
     <div class="content" each={ articleListResults }>
       { post }
       <br>
@@ -13,14 +16,14 @@
     var limit = 10
     var self = this
 
-    listArticle() {
-      fetch(fetchUrl + 'articles/' + opts.id + '/' + limit)
+    listArticle(id) {
+      id = id || opts.id || 0
+      fetch(fetchUrl + 'articles/' + id + '/' + limit)
       .then((res) => {
         return res.json()
       }).then((json) => {
         this.articleListResults = JSON.parse(json)
       }).then(() => {
-        console.log(this.articleListResults)
         self.update()
       })
     }
@@ -29,6 +32,10 @@
 
     el.on('thisArticleReload', (id) => {
       if (id == opts.id) this.listArticle()
+    })
+
+    el.on('threadViewRooter', (id) => {
+      this.listArticle(id)
     })
 
 </article-list>

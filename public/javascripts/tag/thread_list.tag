@@ -13,7 +13,6 @@
           <br>
           <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
         </div>
-<hr>
 
 <article-list id={ id }></article-list>
 

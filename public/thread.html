@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 </head>
 <body>
-<section class="hero is-medium is-primary">
+<section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -34,10 +34,7 @@
   <div class="column is-10">
     <div class="container" style="padding-top: 1em;">
 
-<toggle-switch></toggle-switch>
-<thread-create board="test"></thread-create>
-<thread-all board="test"></thread-all>
-<thread-list board="test"></thread-list>
+<thread-single></thread-single>
 
     </div>
   </div>
@@ -54,7 +51,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.4/riot+compiler.min.js"></script>
 <script type="riot/tag" src="./javascripts/tag/thread_create.tag"></script>
 <script type="riot/tag" src="./javascripts/tag/thread_all.tag"></script>
+<script type="riot/tag" src="./javascripts/tag/thread_single.tag"></script>
 <script type="riot/tag" src="./javascripts/tag/thread_list.tag"></script>
+<script type="riot/tag" src="./javascripts/tag/thread_view.tag"></script>
 <script type="riot/tag" src="./javascripts/tag/article_post.tag"></script>
 <script type="riot/tag" src="./javascripts/tag/article_list.tag"></script>
 <script type="riot/tag" src="./javascripts/tag/toggle_switch.tag"></script>
