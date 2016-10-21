@@ -28,7 +28,7 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 
   models.article.sequelize.query(
     "select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;",
-    { bind: [thread_id, limit]}
+    { bind: [thread_id, limit], type: models.sequelize.QueryTypes.SELECT }
   ).then((articles) => {
     jsonArticles = JSON.stringify(articles)
   }).then(() => {

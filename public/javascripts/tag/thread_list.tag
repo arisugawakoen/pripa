@@ -33,7 +33,7 @@
     var results = []
     var fetchUrl = './'
     var offset = 0
-    var limit = 20
+    var limit = 10
     var self = this
 
     listThread() {

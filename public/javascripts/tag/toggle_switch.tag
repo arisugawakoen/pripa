@@ -2,18 +2,18 @@
 
   <div class="control is-grouped" style="margin-bottom: 1em;">
     <p class="control">
-      <a class="button is-danger" onclick={ toggleThreadCreate }>
+      <a class="tag is-danger" onclick={ toggleThreadCreate }>
         スレッド作成
       </a>
     </p>
     <p class="control">
-      <a class="button is-success" onclick={ toggleArticleView }>
-        表示変更
+      <a class="tag is-primary" onclick={ toggleThreadAll }>
+        スレッド一覧表示
       </a>
     </p>
     <p class="control">
-      <a class="button is-primary" onclick={ toggleThreadAll }>
-        スレッド一覧表示
+      <a class="tag is-success" onclick={ toggleArticleView }>
+        通報
       </a>
     </p>
   </div>

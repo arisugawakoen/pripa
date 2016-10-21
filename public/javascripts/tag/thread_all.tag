@@ -1,5 +1,5 @@
 <thread-all>
-  <div class="message is-danger" style="margin-bottom: 1em;" if={ flagThreadAll }>
+  <div class="message is-primary" style="margin-bottom: 1em;" if={ flagThreadAll }>
     <div class="message-body">
       スレッド一覧
       <span each={ results }>{ title } </span>
