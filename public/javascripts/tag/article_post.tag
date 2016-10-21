@@ -35,8 +35,10 @@
             name: name,
           })
         }).then(() => {
-          el.trigger('allThreadReload')
           el.trigger('thisArticleReload', threadId)
+        }).then(() => {
+          el.trigger('allThreadReload')
+        }).then(() => {
           self.update()
         })
       } else {

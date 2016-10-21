@@ -37,6 +37,7 @@
           })
         }).then(() => {
           el.trigger('allThreadReload')
+        }).then(() => {
           self.update()
         })
       } else {
