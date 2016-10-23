@@ -35,6 +35,18 @@ router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   })
 })
 
+router.get('/id/:threadId(\\d+)', (req, res, next) => {
+  let jsonThread
+  let threadId = parseInt(req.params.threadId)
+
+  models.thread.findById(threadId)
+  .then((thread) => {
+    jsonThread = JSON.stringify(thread)
+  }).then(() => {
+    res.json(jsonThread)
+  })
+})
+
 router.post('/:board', (req, res, next) => {
   let name
 
