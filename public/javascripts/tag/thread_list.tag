@@ -14,7 +14,7 @@
           <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
         </div>
 
-<article-list id={ id }></article-list>
+<article-list id={ id } limit=10></article-list>
 
       </div>
       <div class="tabs is-small" style="margin-bottom: 0px;">
@@ -33,11 +33,12 @@
     var results = []
     var fetchUrl = './'
     var offset = 0
-    var limit = 10
+    var threadLimit = 10
+    var articleLimit = 10
     var self = this
 
     listThread() {
-      fetch(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + limit)
+      fetch(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + threadLimit)
       .then((res) => {
         return res.json()
       }).then((json) => {

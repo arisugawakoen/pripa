@@ -13,12 +13,20 @@
 
     var articleListResults = []
     var fetchUrl = './'
-    var limit = 10
+//    var limit = 10
     var self = this
 
     listArticle(id) {
+      var url
       id = id || opts.id || 0
-      fetch(fetchUrl + 'articles/' + id + '/' + limit)
+
+      if (opts.limit) {
+        url = fetchUrl + 'articles/' + id + '/' + opts.limit
+      } else {
+        url = fetchUrl + 'articles/' + id
+      }
+
+      fetch(url)
       .then((res) => {
         return res.json()
       }).then((json) => {
