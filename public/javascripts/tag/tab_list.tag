@@ -1,21 +1,11 @@
 <tab-list>
 
-  <div class="control is-grouped" style="margin-bottom: 1em;">
-    <p class="control">
-      <a class="tag is-primary">
-        全件表示
-      </a>
-    </p>
-    <p class="control">
-      <a class="tag is-success">
-        先頭
-      </a>
-    </p>
-    <p class="control">
-      <a class="tag is-info">
-        最新
-      </a>
-    </p>
+  <div class="tabs is-small" style="margin-bottom: 0px;">
+    <ul>
+      <li><a>全表示</a></li>
+      <li><a>最新表示</a></li>
+      <li><a>先頭表示</a></li>
+    </ul>
   </div>
 
 

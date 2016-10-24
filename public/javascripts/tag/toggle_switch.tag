@@ -1,21 +1,21 @@
 <toggle-switch>
 
-  <div class="control is-grouped" style="margin-bottom: 1em;">
-    <p class="control">
-      <a class="tag is-danger" onclick={ toggleThreadCreate }>
-        スレッド作成
-      </a>
-    </p>
-    <p class="control">
-      <a class="tag is-primary" onclick={ toggleThreadAll }>
-        スレッド一覧表示
-      </a>
-    </p>
-    <p class="control">
-      <a class="tag is-success" onclick={ toggleArticleView }>
-        通報
-      </a>
-    </p>
+  <div class="hero-foot">
+    <nav class="tabs">
+      <div class="container">
+        <ul>
+          <li>
+            <a onclick={ toggleThreadCreate }>スレッド作成</a>
+          </li>
+          <li>
+            <a onclick={ toggleThreadAll }>スレッド一覧</a>
+          </li>
+          <li>
+            <a onclick={ toggleArticleView }>通報</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
 
     var stateThreadCreate = false
