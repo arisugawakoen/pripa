@@ -2,14 +2,17 @@
 
   <header class="card-header">
     <p class="card-header-title">
-      { result.title }
+      <a href="./thread.html#{ id }">{ result.title }</a>
     </p>
   </header>
   <div class="card-content">
     <div class="content">
       { result.post }
       <br>
-      <small><strong>{ result.name }</strong> { moment.utc(result.create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
+      <small>
+        <strong>{ result.name }</strong>
+        { moment.utc(result.create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
+      </small>
     </div>
 
 <article-list id={ opts.id }></article-list>

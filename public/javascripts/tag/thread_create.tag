@@ -1,16 +1,20 @@
 <thread-create>
-  <form name="thread_create" onsubmit={ add } style="margin-bottom: 1em;" if={ flagThreadCreate }>
+  <form name="thread_create" onsubmit={ add } style="margin-bottom: 1em;"
+   if={ flagThreadCreate }>
     <div>
     <div class="control is-horizonral">
       <div class="control has-addons">
-        <input class="input is-expanded is-danger" type="text" placeholder="title" onkeyup={ keyupTitle }>
-        <input class="input is-danger" type="text" placeholder="Name" onchange={ keyupName }>
+        <input class="input is-expanded is-danger" type="text"
+         placeholder="title" onkeyup={ keyupTitle }>
+        <input class="input is-danger" type="text" placeholder="Name"
+         onchange={ keyupName }>
         <button class="button is-danger">スレッド作成</button>
       </div>
     </div>
     <div class="control is-horizontal">
       <div class="control">
-        <textarea class="textarea is-danger" placeholder="article" onchange={ keyupPost }></textarea>
+        <textarea class="textarea is-danger" placeholder="article"
+         onchange={ keyupPost }></textarea>
       </div>
     </div>
     </div>

@@ -1,19 +1,19 @@
 <article-list>
 
   <div if={ articleListResults.length }>
-
-<hr>
-
+    <hr>
     <div class="content" each={ articleListResults }>
       { post }
       <br>
-      <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
+      <small>
+        <strong>{ name }</strong>
+        { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
+      </small>
     </div>
   </div>
 
     var articleListResults = []
     var fetchUrl = './'
-//    var limit = 10
     var self = this
 
     listArticle(id) {

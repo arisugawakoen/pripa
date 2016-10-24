@@ -21,6 +21,27 @@ router.get('/:thread_id(\\d+)', (req, res, next) => {
   })
 })
 
+router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
+  let jsonArticles
+  let thread_id = parseInt(req.params.thread_id)
+  let offset = parseInt(req.params.offset)
+  let limit = parseInt(req.params.limit)
+
+  models.article.findAll({
+    where: {
+      thread_id: thread_id
+    },
+    offset: offset,
+    limit: limit,
+    order: 'id ASC',
+    attributes: ['id', 'post', 'thread_id', 'create_date', 'name']
+  }).then((articles) => {
+    jsonArticles = JSON.stringify(articles)
+  }).then(() => {
+    res.json(jsonArticles)
+  })
+})
+
 router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonArticles
   let thread_id = parseInt(req.params.thread_id)

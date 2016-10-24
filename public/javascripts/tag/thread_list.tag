@@ -1,25 +1,28 @@
 <thread-list>
 
   <div each={ results }>
-    <div class="card is-fullwidth" style="margin-bottom: 1em; box-shadow: 0 0 0;">
+    <div class="card is-fullwidth"
+     style="margin-bottom: 1em; box-shadow: 0 0 0;">
       <header class="card-header">
         <p class="card-header-title">
-          { title }
+          <a href="./thread.html#{ id }">{ title }</a>
         </p>
       </header>
       <div class="card-content">
         <div class="content">
           { post }
           <br>
-          <small><strong>{ name }</strong> { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }</small>
+          <small>
+            <strong>{ name }</strong>
+            { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
+          </small>
         </div>
 
 <article-list id={ id } limit=10></article-list>
 
       </div>
 
-<tab-list></tab-list>
-
+<tab-list id={ id }></tab-list>
 <article-post id={ id }></article-post>
 
     </div>

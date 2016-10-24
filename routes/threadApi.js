@@ -5,8 +5,6 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
-const re = /\d+/
-
 router.get('/:board/all', (req, res, next) => {
   let jsonThreads
 
