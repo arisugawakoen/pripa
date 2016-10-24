@@ -42,7 +42,8 @@
       if (id == opts.id) this.listArticle()
     })
 
-    el.on('threadViewRooter', (id) => {
+    el.on('threadViewRooter', (id, action) => {
+      console.log(action)
       this.listArticle(id)
     })
 

@@ -12,22 +12,14 @@
     var self = this
     el = riot.observable()
 
-    riot.route((id) => {
-      var strId = id.toString()
-      var rooterMatch = strId.match(/^(\d+)_(\w+)$/)
+    riot.route((id, action) => {
+      console.log('id: ', id)
+      console.log('action: ', action)
 
-      console.log(rooterMatch)
-      if (rooterMatch) {
-        self.threadId = parseInt(rooterMatch[1])
-        console.log(rooterMatch[2])
-      } else {
-        self.threadId = id
-      }
-
-      el.trigger('threadViewRooter', id)
+      self.threadId = id
+      el.trigger('threadViewRooter', id, action)
     })
 
     riot.route.start(true)
-
 
 </thread-single>
