@@ -15,10 +15,6 @@
     el = riot.observable()
 
     riot.route((id) => {
-//      console.log(id)
-//      console.log(id.match(/^(\d+)/))
-//      console.log(id.match(/^(\d+)_(\w+)$/))
-       
       self.threadId = id
       el.trigger('threadViewRooter', id)
     })

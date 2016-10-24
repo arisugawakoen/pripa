@@ -17,6 +17,7 @@
 <article-list id={ id } limit=10></article-list>
 
       </div>
+
       <div class="tabs is-small" style="margin-bottom: 0px;">
         <ul>
           <li><a>全表示</a></li>
