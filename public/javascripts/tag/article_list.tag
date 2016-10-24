@@ -16,12 +16,17 @@
     var fetchUrl = './'
     var self = this
 
-    listArticle(id) {
+    listArticle(id, action) {
       var url
+      action = action || ''
       id = id || opts.id || 0
 
       if (opts.limit) {
         url = fetchUrl + 'articles/' + id + '/' + opts.limit
+      } else if (action == 'top') {
+        url = fetchUrl + 'articles/' + id + '/0/10'
+      } else if (action == 'latest') {
+        url = fetchUrl + 'articles/' + id + '/10'
       } else {
         url = fetchUrl + 'articles/' + id
       }
@@ -44,7 +49,7 @@
 
     el.on('threadViewRooter', (id, action) => {
       console.log(action)
-      this.listArticle(id)
+      this.listArticle(id, action)
     })
 
 </article-list>
