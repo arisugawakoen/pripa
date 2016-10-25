@@ -28,6 +28,9 @@
     </div>
   </div>
 
+    globalId = 0
+    globalAction = ''
+
     var results = []
     var fetchUrl = './'
     var offset = 0

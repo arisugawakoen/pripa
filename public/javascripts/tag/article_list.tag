@@ -18,8 +18,22 @@
 
     listArticle(id, action) {
       var url
-      action = action || ''
+
+      console.log('arg.id:', id)
+      console.log('arg.action:', action)
+
+      if (globalId) console.log('received-global.id:', globalId)
+      if (globalAction) console.log('received-global.action:', globalAction)
+
+      action = action || globalAction || ''
       id = id || opts.id || 0
+      globalId = 0
+      globalAction = ''
+
+      console.log('opts.limit: ', opts.limit)
+      console.log('opts.id: ', opts.id)
+      console.log('function-id: ', id)
+      console.log('function-action: ', action)
 
       if (opts.limit) {
         url = fetchUrl + 'articles/' + id + '/' + opts.limit
@@ -48,7 +62,8 @@
     })
 
     el.on('threadViewRooter', (id, action) => {
-      console.log(action)
+      console.log('event-id: ', id)
+      console.log('event-action: ', action)
       this.listArticle(id, action)
     })
 
