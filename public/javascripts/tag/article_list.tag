@@ -3,7 +3,7 @@
   <div if={ articleListResults.length }>
     <hr>
     <div class="content" each={ articleListResults }>
-      { post }
+      <raw content={ post }></raw>
       <br>
       <small>
         <strong>{ name }</strong>
