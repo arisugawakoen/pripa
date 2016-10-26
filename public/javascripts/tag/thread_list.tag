@@ -10,7 +10,7 @@
       </header>
       <div class="card-content">
         <div class="content">
-          { post }
+          <raw content={ post }></raw>
           <br>
           <small>
             <strong>{ name }</strong>

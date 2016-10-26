@@ -5,6 +5,18 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
+function escapeJsHTML(str) {
+    return str
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'")
+            .replace(/"/g, '\\"')
+            .replace(/</g, '\\x3c')
+            .replace(/>/g, '\\x3e')
+            .replace(/(0x0D)/g, '\r')
+            .replace(/(0x0A)/g, '\n')
+            .replace(/&/g, '&amp;');
+}
+
 router.get('/:thread_id(\\d+)', (req, res, next) => {
   let jsonArticles
   let thread_id = parseInt(req.params.thread_id)
@@ -59,10 +71,12 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 router.post('/:thread_id(\\d+)', (req, res, next) => {
   let thread_id = parseInt(req.body.thread_id)
-    
+  let post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
+  let name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
+
   models.article.create({
-    post: req.body.post,
-    name: req.body.name,
+    post: post,
+    name: name,
     create_date: moment().add(9, 'h'),
     thread_id : req.body.thread_id
   }).then(() => {

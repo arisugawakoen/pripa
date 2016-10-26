@@ -5,6 +5,18 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
+function escapeJsHTML(str) {
+    return str
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'")
+            .replace(/"/g, '\\"')
+            .replace(/</g, '\\x3c')
+            .replace(/>/g, '\\x3e')
+            .replace(/(0x0D)/g, '\r')
+            .replace(/(0x0A)/g, '\n')
+            .replace(/&/g, '&amp;');
+}
+
 router.get('/:board/all', (req, res, next) => {
   let jsonThreads
 
@@ -46,20 +58,22 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
 })
 
 router.post('/:board', (req, res, next) => {
-  let name
+  let title = req.body.title ? escapeJsHTML(req.body.title) : req.body.title
+  let board = req.body.board ? escapeJsHTML(req.body.board) : req.body.board
+  let post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
+  let name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
 
   if (req.body.title && req.body.post) {
-    name = req.body.name || null
     models.board.findOne({
       attributes: ['id'],
       where: {
-        title: req.body.board
+        title: board
       }
     }).then((result) => {
       if (result) {
         models.board.sequelize.query(
           "insert into threads (title, board_id, create_date, update_date, post, name) value ($1, (select id from boards where title=$2 ), $3, $3, $4, $5)",
-          { bind: [req.body.title, req.body.board, moment().format(), req.body.post, name]}
+          { bind: [title, board, moment().format(), post, name]}
         ).then(() => {
           res.send('ok')
         })
