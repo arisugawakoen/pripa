@@ -34,11 +34,11 @@
             post: post,
             name: name,
           })
-        }).then(() => {
+        }).then(function() {
           el.trigger('thisArticleReload', threadId)
-        }).then(() => {
+        }).then(function() {
           el.trigger('allThreadReload')
-        }).then(() => {
+        }).then(function() {
           self.update()
         })
       } else {

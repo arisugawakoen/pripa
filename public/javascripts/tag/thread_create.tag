@@ -39,9 +39,9 @@
             post: post,
             name: name,
           })
-        }).then(() => {
+        }).then(function() {
           el.trigger('allThreadReload')
-        }).then(() => {
+        }).then(function() {
           self.update()
         })
       } else {
@@ -69,7 +69,7 @@
       }
     }
 
-    el.on("toggleThreadCreate", (toggle) => {
+    el.on("toggleThreadCreate", function(toggle) {
       self.flagThreadCreate = toggle
       self.update()
     })

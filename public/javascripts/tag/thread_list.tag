@@ -40,19 +40,19 @@
 
     listThread() {
       fetch(fetchUrl + 'threads/' + opts.board + '/' + offset + '/' + threadLimit)
-      .then((res) => {
+      .then(function(res) {
         return res.json()
-      }).then((json) => {
+      }).then(function(json) {
         self.results = JSON.parse(json)
-      }).then(() => {
+      }).then(function() {
         self.update()
       })
     }
 
-    this.listThread()
+    self.listThread()
 
-    el.on('allThreadReload', () => {
-      this.listThread()
+    el.on('allThreadReload', function() {
+      self.listThread()
     })
 
 </thread-list>

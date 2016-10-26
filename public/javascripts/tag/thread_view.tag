@@ -25,19 +25,19 @@
       id = id || opts.id || 0
 
       fetch(fetchUrl + 'threads/id/' + id)
-      .then((res) => {
+      .then(function(res) {
         return res.json()
-      }).then((json) => {
+      }).then(function(json) {
         self.result = JSON.parse(json)
-      }).then(() => {
+      }).then(function() {
         self.update()
       })
     }
 
-    this.headThread()
+    self.headThread()
 
-    el.on('threadViewRooter', (id) => {
-      this.headThread(id)
+    el.on('threadViewRooter', function(id) {
+      self.headThread(id)
     })
 
 </thread-view>

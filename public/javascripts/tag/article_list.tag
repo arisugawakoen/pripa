@@ -1,6 +1,6 @@
 <article-list>
 
-  <div if={ articleListResults.length }>
+  <div if={ articleListResults }>
     <hr>
     <div class="content" each={ articleListResults }>
       <raw content={ post }></raw>
@@ -19,21 +19,11 @@
     listArticle(id, action) {
       var url
 
-      console.log('arg.id:', id)
-      console.log('arg.action:', action)
-
-      if (globalId) console.log('received-global.id:', globalId)
-      if (globalAction) console.log('received-global.action:', globalAction)
-
       action = action || globalAction || ''
       id = id || opts.id || 0
       globalId = 0
       globalAction = ''
 
-      console.log('opts.limit: ', opts.limit)
-      console.log('opts.id: ', opts.id)
-      console.log('function-id: ', id)
-      console.log('function-action: ', action)
 
       if (opts.limit) {
         url = fetchUrl + 'articles/' + id + '/' + opts.limit
@@ -46,25 +36,23 @@
       }
 
       fetch(url)
-      .then((res) => {
+      .then(function(res) {
         return res.json()
-      }).then((json) => {
-        this.articleListResults = JSON.parse(json)
-      }).then(() => {
+      }).then(function(json) {
+        self.articleListResults = JSON.parse(json)
+      }).then(function() {
         self.update()
       })
     }
 
-    this.listArticle()
+    self.listArticle()
 
-    el.on('thisArticleReload', (id) => {
-      if (id == opts.id) this.listArticle()
+    el.on('thisArticleReload', function(id) {
+      if (id == opts.id) self.listArticle()
     })
 
-    el.on('threadViewRooter', (id, action) => {
-      console.log('event-id: ', id)
-      console.log('event-action: ', action)
-      this.listArticle(id, action)
+    el.on('threadViewRooter', function(id, action) {
+      self.listArticle(id, action)
     })
 
 </article-list>

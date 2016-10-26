@@ -16,22 +16,22 @@
 
     allThread() {
       fetch(fetchUrl + 'threads/' + opts.board + '/all')
-      .then((res) => {
+      .then(function(res) {
         return res.json()
-      }).then((json) => {
+      }).then(function(json) {
         self.results = JSON.parse(json)
-      }).then(() => {
+      }).then(function() {
         self.update()
       })
     }
 
-    this.allThread()
+    self.allThread()
 
-    el.on('allThreadReload', () => {
-      this.allThread()
+    el.on('allThreadReload', function() {
+      self.allThread()
     })
 
-    el.on('toggleThreadAll', (toggle) => {
+    el.on('toggleThreadAll', function(toggle) {
       self.flagThreadAll = toggle
       self.update()
     })

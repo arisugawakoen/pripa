@@ -8,24 +8,19 @@
 
   </div>
 
-    this.threadId = 0
+    threadId = 0
     var self = this
     el = riot.observable()
 
     globalId = 0
     globalAction = ''
 
-    riot.route((id, action) => {
-      console.log('rooter-id: ', id)
-      console.log('rooter-action: ', action)
-
+    riot.route(function(id, action) {
       globalId = id      
       globalAction = action
 
-      console.log('global-id: ', globalId)
-      console.log('global-action: ', globalAction)
-
-      self.threadId = id
+      threadId = id
+      self.update()
       el.trigger('threadViewRooter', id, action)
     })
 
