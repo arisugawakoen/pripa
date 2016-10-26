@@ -58,10 +58,10 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
 })
 
 router.post('/:board', (req, res, next) => {
-  let title = req.body.title ? escapeJsHTML(req.body.title) : req.body.title
-  let board = req.body.board ? escapeJsHTML(req.body.board) : req.body.board
-  let post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
-  let name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
+  let title = req.body.title ? escapeJsHTML(req.body.title) : ''
+  let board = req.body.board ? escapeJsHTML(req.body.board) : ''
+  let post = req.body.post ? escapeJsHTML(req.body.post) : ''
+  let name = req.body.name ? escapeJsHTML(req.body.name) : ''
 
   if (req.body.title && req.body.post) {
     models.board.findOne({
