@@ -7,7 +7,12 @@
           /((https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+))/gi,
           function (all, url, normal) {
             if (url) {
-              return '<a href="' + url + '" target="_blank">' + url + '</a>'
+              var videoId = /[/?=]([-\w]{11})/.exec(url)
+              if (videoId) {
+                return '<iframe src="https://www.youtube.com/embed/' + videoId[1] + '?rel=0" frameborder="0" allowfullscreen></iframe>'
+              } else {
+                return '<a href="' + url + '" target="_blank">' + url + '</a>'
+              }
             } else {
               return normal;
             }
