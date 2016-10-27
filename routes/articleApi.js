@@ -5,6 +5,8 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
+// escape of JavaScript and HTML
+
 function escapeJsHTML(str) {
     return str
             .replace(/\\/g, '\\\\')
@@ -16,6 +18,8 @@ function escapeJsHTML(str) {
             .replace(/(0x0A)/g, '\n')
             .replace(/&/g, '&amp;');
 }
+
+// get all articles of a thread
 
 router.get('/:thread_id(\\d+)', (req, res, next) => {
   let jsonArticles
@@ -32,6 +36,8 @@ router.get('/:thread_id(\\d+)', (req, res, next) => {
     res.json(jsonArticles)
   })
 })
+
+// get limited and offset (head)  articles of a thread
 
 router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonArticles
@@ -54,6 +60,8 @@ router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   })
 })
 
+// get latest articles of a thread
+
 router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonArticles
   let thread_id = parseInt(req.params.thread_id)
@@ -68,6 +76,8 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
     res.json(jsonArticles)
   })
 })
+
+// post an article
 
 router.post('/:thread_id(\\d+)', (req, res, next) => {
   let thread_id = parseInt(req.body.thread_id)

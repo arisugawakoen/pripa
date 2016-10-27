@@ -5,6 +5,8 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
+// escape JavaScript and HTML
+
 function escapeJsHTML(str) {
     return str
             .replace(/\\/g, '\\\\')
@@ -16,6 +18,8 @@ function escapeJsHTML(str) {
             .replace(/(0x0A)/g, '\n')
             .replace(/&/g, '&amp;');
 }
+
+// get all threads name
 
 router.get('/:board/all', (req, res, next) => {
   let jsonThreads
@@ -29,6 +33,8 @@ router.get('/:board/all', (req, res, next) => {
     res.json(jsonThreads)
   })
 })
+
+// get latest threads name and post
 
 router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonThreads
@@ -45,6 +51,8 @@ router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   })
 })
 
+// get a thread name and post
+
 router.get('/id/:threadId(\\d+)', (req, res, next) => {
   let jsonThread
   let threadId = parseInt(req.params.threadId)
@@ -56,6 +64,8 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
     res.json(jsonThread)
   })
 })
+
+// create a new thread
 
 router.post('/:board', (req, res, next) => {
   let title = req.body.title ? escapeJsHTML(req.body.title) : ''
