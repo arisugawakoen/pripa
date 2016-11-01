@@ -5,7 +5,7 @@
      style="margin-bottom: 1em; box-shadow: 0 0 0;">
       <header class="card-header">
         <p class="card-header-title">
-          <a href="./thread.html#{ id }">{ title }</a>
+          <a href="./thread.html#{ id }/top">{ title }</a>
         </p>
       </header>
       <div class="card-content">
