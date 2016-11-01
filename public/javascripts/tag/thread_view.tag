@@ -2,7 +2,9 @@
 
   <header class="card-header">
     <p class="card-header-title">
-      <a href="./thread.html#{ result.id }">{ result.title }</a>
+      <a href="./thread.html#{ result.id }">
+        { result.board_name } : { result.title }
+      </a>
     </p>
   </header>
   <div class="card-content">
@@ -24,14 +26,16 @@
     headThread(id) {
       id = id || opts.id || 0
 
-      fetch(fetchUrl + 'threads/id/' + id)
-      .then(function(res) {
-        return res.json()
-      }).then(function(json) {
-        self.result = JSON.parse(json)
-      }).then(function() {
-        self.update()
-      })
+      if (id) {
+        fetch(fetchUrl + 'threads/id/' + id)
+        .then(function(res) {
+          return res.json()
+        }).then(function(json) {
+          self.result = JSON.parse(json)
+        }).then(function() {
+          self.update()
+        })
+      }
     }
 
     self.headThread()

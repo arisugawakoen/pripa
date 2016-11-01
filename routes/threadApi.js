@@ -57,9 +57,11 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
   let jsonThread
   let threadId = parseInt(req.params.threadId)
 
-  models.thread.findById(threadId)
-  .then((thread) => {
-    jsonThread = JSON.stringify(thread)
+  models.thread.sequelize.query(
+    "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post, boards.title as board_name from threads left join boards on threads.board_id = boards.id where threads.id = $1",
+    { bind: [threadId], type: models.sequelize.QueryTypes.SELECT }
+  ).then((thread) => {
+    jsonThread = JSON.stringify(thread[0])
   }).then(() => {
     res.json(jsonThread)
   })

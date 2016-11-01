@@ -8,8 +8,9 @@
           function (all, url, normal) {
             if (url) {
               var youtubeCheck = /youtu/.test(url)
+              var channelCheck = /channel/.test(url)
               var videoId = /[/?=]([-\w]{11})/.exec(url)
-              if (youtubeCheck && videoId) {
+              if (youtubeCheck && videoId && !channelCheck) {
                 return '<iframe src="https://www.youtube.com/embed/' + videoId[1] + '?rel=0" frameborder="0" allowfullscreen></iframe>'
               } else {
                 return '<a href="' + url + '" target="_blank">' + url + '</a>'
