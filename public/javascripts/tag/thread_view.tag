@@ -2,9 +2,8 @@
 
   <header class="card-header">
     <p class="card-header-title">
-      <a href="./thread.html#{ result.id }">
-        { result.board_name } : { result.title }
-      </a>
+      <a href="./{ result.board_name }.html">{ result.board_name }：</a>
+      <a href="./thread.html#{ result.id }">{ result.title }</a>
     </p>
   </header>
   <div class="card-content">
