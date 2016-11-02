@@ -46,8 +46,6 @@
     var self = this
 
     listBoards() {
-      var board
-
       fetch(fetchUrl + 'boards/all')
       .then(function(res) {
         return res.json()
