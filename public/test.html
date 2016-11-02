@@ -2,69 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=1">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
+<meta name="viewport"
+ content="initial-scale=1, maximum-scale=1, user-scalable=1">
+<link rel="stylesheet" type="text/css"
+ href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 </head>
 <body>
 <section class="hero is-medium is-primary">
-  <div class="hero-head">
-    <header class="nav">
-      <div class="container">
-        <div class="nav-left">
-          <a class="nav-item">Pripa</a>
-        </div>
-        <div class="nav-right nav-menu">
-          <a class="nav-item">Home</a>
-          <a class="nav-item">Yet Another Board</a>
-          <span class="nav-item">
-            <a class="button is-light is-outlined">
-              GitHub
-            </a>
-          </span>
-          <span class="nav-item">
-            <a class="button is-light is-outlined">
-              Twitter
-            </a>
-          </span>
-          <span class="nav-item">
-            <a class="button is-primary is-inverted">
-              Download
-            </a>
-          </span>
-        </div>
-      </div>
-    </header>
-  </div>
 
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        title
-      </h1>
-      <h2 class="subtitle">
-        subtitle
-      </h2>
-    </div>
-  </div>
-
+<helo-top></helo-top>
 <toggle-switch></toggle-switch>
 
 </section>
 <div class="columns">
   <div class="column is-3">
-    <aside class="menu" style="padding: 1em;">
-      <p class="menu-label">
-        menu-head
-      </p>
-      <ul class="menu-list">
-        <li><a href="#">menu-content</a></li>
-        <li><a href="#">menu-content</a></li>
-        <li><a href="#">menu-content</a></li>
-      </ul>
-    </aside>
+
+<left-side></left-side>
+
   </div>
   <div class="column is-9">
-    <div class="container" style="padding-top: 1em; word-wrap: break-word; line-height: 1.8;">
+    <div class="container"
+     style="padding-top: 1em; word-wrap: break-word; line-height: 1.8;">
 
 <thread-create board="test"></thread-create>
 <thread-all board="test"></thread-all>
@@ -74,11 +32,9 @@
   </div>
 </div>
 <footer class="footer is-info">
-  <div class="container">
-    <div class="content has-text-centered">
-      footer
-    </div>
-  </div>
+
+<bottom-end></bottom-end>
+
 </footer>
 <script src="./javascripts/fetch.min.js"></script>
 <script src="./javascripts/moment.min.js"></script>
