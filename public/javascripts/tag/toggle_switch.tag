@@ -11,7 +11,7 @@
             <a onclick={ toggleThreadAll }>スレッド一覧</a>
           </li>
           <li>
-            <a onclick={ toggleArticleView }>通報</a>
+            <a onclick={ toggleSearchBox }>検索</a>
           </li>
         </ul>
       </div>
@@ -19,7 +19,7 @@
   </div>
 
     var stateThreadCreate = false
-    var stateArticleView = true
+    var stateSearchBox = false
     var stateThreadAll = false
     
     toggleThreadCreate() {
@@ -27,9 +27,9 @@
       el.trigger("toggleThreadCreate", this.stateThreadCreate)
     }
 
-    toggleArticleView() {
-      this.stateArticleView = !this.stateArticleView
-      el.trigger("toggleArticleView", this.stateArticleView)
+    toggleSearchBox() {
+      this.stateSearchBox = !this.stateSearchBox
+      el.trigger("toggleSearchBox", this.stateSearchBox)
     }
 
     toggleThreadAll() {

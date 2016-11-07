@@ -3,6 +3,7 @@
   <aside class="menu" style="padding: 1em;">
     <p class="menu-list">
       <a href="./">トップページ</a>
+      <a href="./search.html">検索</a>
     </p>
 
     <p class="menu-label">
