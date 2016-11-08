@@ -11,7 +11,6 @@
   </form>
  
     var flagSearchBox = false
-    var fetchUrl = './'
     var self = this
 
     el.on("toggleSearchBox", function(toggle) {
