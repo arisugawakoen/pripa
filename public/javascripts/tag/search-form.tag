@@ -17,6 +17,8 @@
     ask(e) {
       if (this.text) {
         searchArticles(this.text)
+        searchThreads(this.text)
+        searchTop(this.text)
       }
     }
 

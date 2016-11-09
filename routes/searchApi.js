@@ -27,7 +27,7 @@ router.post('/thread', (req, res, next) => {
   let query = req.body.query ? '%' + req.body.query + '%' : null
 
   models.thread.sequelize.query(
-    "select t.id as thread_id, t.title as thread_title, b.title as board_name from threads t join boards b on t.board_id = b.id where t.title like $1 order by t.id DESC;",
+    "select t.id as thread_id, t.title as thread_title, t.create_date, t.name, b.title as board_name from threads t join boards b on t.board_id = b.id where t.title like $1 order by t.id DESC;",
     { bind: [query], type: models.sequelize.QueryTypes.SELECT }
   ).then((threads) => {
     jsonThreads = JSON.stringify(threads)
