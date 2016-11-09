@@ -5,22 +5,20 @@
   <div class="card is-fullwidth"
    style="margin-bottom: 1em; box-shadow: 0 0 0;">
     <header class="card-header">
-      <p class="card-header-title">投稿検索結果</p>
+      <p class="card-header-title">スレッドタイトル検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content" if={ results.length }>
-        <div each={ results }>
-          <raw content={ post }></raw>
-          <br>
-          <small>
-            <a href="./{ board_name }.html">{ board_name }</a> : 
+      <div class="content" if={ resultsThread.length }>
+        <div each={ resultsThread }>
+            <a href="./{ board_name }.html">{ board_name }</a> :
             <a href="./thread.html#{ thread_id }">{ thread_title }</a>
             <span if={ name.length }>name : { name }</span>
+          <small>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>
       </div>
-      <div class="content" if={!isResult }>
+      <div class="content" if={!isResultThread }>
         検索結果なし
       </div>
     </div>
@@ -29,7 +27,7 @@
   <div class="card is-fullwidth"
    style="margin-bottom: 1em; box-shadow: 0 0 0;">
     <header class="card-header">
-      <p class="card-header-title">スレッドトップ検索結果</p>
+      <p class="card-header-title">スレッド先頭投稿検索結果</p>
     </header>
     <div class="card-content">
       <div class="content" if={ resultsTop.length }>
@@ -50,31 +48,29 @@
     </div>
   </div>
 
-
-
-
   <div class="card is-fullwidth"
    style="margin-bottom: 1em; box-shadow: 0 0 0;">
     <header class="card-header">
-      <p class="card-header-title">スレッドタイトル検索結果</p>
+      <p class="card-header-title">投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content" if={ resultsThread.length }>
-        <div each={ resultsThread }>
-            <a href="./{ board_name }.html">{ board_name }</a> : 
+      <div class="content" if={ results.length }>
+        <div each={ results }>
+          <raw content={ post }></raw>
+          <br>
+          <small>
+            <a href="./{ board_name }.html">{ board_name }</a> :
             <a href="./thread.html#{ thread_id }">{ thread_title }</a>
             <span if={ name.length }>name : { name }</span>
-          <small>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>
       </div>
-      <div class="content" if={!isResultThread }>
+      <div class="content" if={!isResult }>
         検索結果なし
       </div>
     </div>
   </div>
-
 
     var results = []
     var resultsThread = []
