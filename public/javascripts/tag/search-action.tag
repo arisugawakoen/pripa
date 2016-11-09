@@ -1,5 +1,7 @@
 <search-action>
 
+  <search-form query={ urlQuery }></search-form>
+
   <div class="card is-fullwidth"
    style="margin-bottom: 1em; box-shadow: 0 0 0;">
     <header class="card-header">
@@ -11,8 +13,9 @@
           <raw content={ post }></raw>
           <br>
           <small>
-            board : { board_name } thread : { thread_title }　
-            <strong>{ name }</strong>
+            board : <strong><a href="./{ board_name }.html">{ board_name }</a></strong>
+            thread : <strong><a href="./thread.html#{ thread_id }">{ thread_title }</a></strong>
+            <span if={ name.length }>name : <strong>{ name }</strong></span>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>
@@ -34,7 +37,7 @@
 
     urlQuery = vars['q']
 
-    searchArticles(query) {
+    searchArticles = function(query) {
       fetch(fetchUrl + 'search/article', {
         method: 'POST',
         headers: {
@@ -54,6 +57,6 @@
       })
     }
 
-    if (urlQuery) this.searchArticles(urlQuery)
+    if (urlQuery) searchArticles(urlQuery)
 
 </search-action>

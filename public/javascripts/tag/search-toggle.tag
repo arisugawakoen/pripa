@@ -1,7 +1,7 @@
-<search-box>
+<search-toggle>
   <form style="margin-bottom: 1em;" if={ flagSearchBox }
    action="./search.html" method="GET">
-    <div class="control is-horizonral">
+    <div class="control is-horizontal">
       <div class="control has-addons">
         <input class="input is-expanded is-warning" type="text"
          placeholder="search" name="q">
@@ -18,4 +18,4 @@
       self.update()
     })
 
-</search-box>
+</search-toggle>
