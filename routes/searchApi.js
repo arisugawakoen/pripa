@@ -22,7 +22,7 @@ router.post('/article', (req, res, next) => {
 
 // search threads
 
-router.post('/search/thread', (req, res, next) => {
+router.post('/thread', (req, res, next) => {
   let jsonThreads
   let query = req.body.query ? '%' + req.body.query + '%' : null
 
@@ -33,6 +33,22 @@ router.post('/search/thread', (req, res, next) => {
     jsonThreads = JSON.stringify(threads)
   }).then(() => {
     res.json(jsonThreads)
+  })
+})
+
+// search thread top articles
+
+router.post('/thread_top', (req, res, next) => {
+  let jsonArticles
+  let query = req.body.query ? '%' + req.body.query + '%' : null
+
+  models.thread.sequelize.query(
+    "select t.name, t.post, t.create_date, t.id as thread_id, t.title as thread_title, b.title as board_name from threads t join boards b on t.board_id = b.id where t.post like $1 order by t.id DESC;",
+    { bind: [query], type: models.sequelize.QueryTypes.SELECT }
+  ).then((articles) => {
+    jsonArticles = JSON.stringify(articles)
+  }).then(() => {
+    res.json(jsonArticles)
   })
 })
 

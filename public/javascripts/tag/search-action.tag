@@ -8,17 +8,20 @@
       <p class="card-header-title">投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content">
+      <div class="content" if={ results.length }>
         <div each={ results }>
           <raw content={ post }></raw>
           <br>
           <small>
-            board : <strong><a href="./{ board_name }.html">{ board_name }</a></strong>
-            thread : <strong><a href="./thread.html#{ thread_id }">{ thread_title }</a></strong>
-            <span if={ name.length }>name : <strong>{ name }</strong></span>
+            board : <a href="./{ board_name }.html">{ board_name }</a>
+            thread : <a href="./thread.html#{ thread_id }">{ thread_title }</a>
+            <span if={ name.length }>name : { name }</span>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>
+      </div>
+      <div class="content" if={!isResult }>
+        検索結果なし
       </div>
     </div>
 
