@@ -30,8 +30,8 @@
       <p class="card-header-title">スレッド先頭投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content" if={ resultsTop.length }>
-        <div each={ resultsTop }>
+      <div if={ resultsTop.length }>
+        <div class="content" each={ resultsTop }>
           <raw content={ post }></raw>
           <br>
           <small>
@@ -54,8 +54,8 @@
       <p class="card-header-title">投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content" if={ results.length }>
-        <div each={ results }>
+      <div if={ results.length }>
+        <div class="content" each={ results }>
           <raw content={ post }></raw>
           <br>
           <small>
