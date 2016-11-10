@@ -8,13 +8,13 @@ Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。
 
 ## Demo
 
-[実働環境](http://aliceriverpark.pw/pripa/)
+[実動環境](http://aliceriverpark.pw/pripa/)
 
 ## Requirement
 
 Node.jsが動作する環境が必要です。  
 デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。  
-[実働環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
+[実動環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
 
 ## Usage
 
