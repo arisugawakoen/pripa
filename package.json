@@ -1,7 +1,12 @@
 {
   "name": "pripa",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Project: rest in peace, Amezo",
+  "keyword": "thread float type BBS",
+  "homepage": "http://aliceriverpark.pw",
+  "license": "GPL-3.0",
+  "author": "risugawakoen <@arisugawakoen>(http://aliceriverpark.pw)",
+  "private": false,
   "scripts": {
     "start": "PORT=80 node ./bin/www"
   },

@@ -27,7 +27,7 @@
           </span>
           <span class="nav-item">
             <a class="button is-primary is-inverted"
-             href="https://github.com/arisugawakoen/pripa">
+             href="https://github.com/arisugawakoen/pripa/archive/master.zip">
               Download
             </a>
           </span>

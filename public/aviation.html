@@ -2,27 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>pripa - Project: rest in peace, Amezo</title>
+<title>aviation board - title</title>
 <meta name="viewport"
  content="initial-scale=1, maximum-scale=1, user-scalable=1">
 <link rel="stylesheet" type="text/css"
  href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 </head>
 <body>
-<section class="hero is-medium is-info">
+<section class="hero is-medium is-danger">
 
 <helo-top></helo-top>
 
   <div class="hero-body">
-    <div class="container has-text-centered">
+    <div class="container">
       <h1 class="title">
-        pripa
+        aviation board
       </h1>
       <h2 class="subtitle">
-        Project: rest in peace, Amezo
+        航空関連
       </h2>
     </div>
   </div>
+
+<toggle-switch></toggle-switch>
 
 </section>
 <div class="columns">
@@ -34,20 +36,12 @@
   <div class="column is-9">
     <div class="container"
      style="padding-top: 1em; word-wrap: break-word; line-height: 1.8;">
-      <div class="content">
-        <h2>pripa</h2>
-        <p>Project: rest in peace, Amezo</p>
-        <h3>概要</h3>
-        <p>Node.jsでRiot.jsでGPL-3.0なスレッドフロート型掲示板です。</p>
-        <h3>デモ</h3>
-        <p><a href="http://aliceriverpark.pw/pripa/test.html">実動環境</a></p>
-        <h3>詳細に関して</h3>
-        <p><a href="https://github.com/arisugawakoen/pripa">当プロジェクトのGitHub</a>をご参照ください。(後日公開予定)</p>
-        <h3>ライセンス</h3>
-        <p><a href="http://www.gnu.org/licenses/gpl-3.0.txt">GPL-3.0</a></p>
-        <h3>作者</h3>
-        <p><a href="https://twitter.com/arisugawakoen">arisugawakoen</a></p>
-      </div>
+
+<thread-create board="aviation"></thread-create>
+<thread-all board="aviation"></thread-all>
+<search-toggle></search-toggle>
+<thread-list board="aviation"></thread-list>
+
     </div>
   </div>
 </div>
