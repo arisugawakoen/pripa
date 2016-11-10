@@ -3,9 +3,9 @@
    action="./search.html" method="GET">
     <div class="control is-horizontal">
       <div class="control has-addons">
-        <input class="input is-expanded is-warning" type="text"
+        <input class="input is-expanded is-primary" type="text"
          placeholder="search" name="q">
-        <button class="button is-warning">検索</button>
+        <button class="button is-primary">検索</button>
       </div>
     </div>
   </form>
