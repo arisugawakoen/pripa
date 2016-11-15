@@ -10,13 +10,13 @@ const moment = require('moment')
 function escapeJsHTML(str) {
     return str
             .replace(/\\/g, '\\\\')
-            .replace(/'/g, "\\'")
-            .replace(/"/g, '\\"')
-            .replace(/</g, '\\x3c')
-            .replace(/>/g, '\\x3e')
+            .replace(/&/g, '&amp;')
+            .replace(/'/g, "&#39;")
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
             .replace(/(0x0D)/g, '\r')
             .replace(/(0x0A)/g, '\n')
-            .replace(/&/g, '&amp;');
 }
 
 // get all threads name
@@ -38,6 +38,8 @@ router.get('/:board/all', (req, res, next) => {
 
 router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonThreads
+  let offset = parseInt(req.params.offset)
+  let limit = parseInt(req.params.limit)
 
   models.thread.sequelize.query(
     "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC limit $3 offset $2;",

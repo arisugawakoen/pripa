@@ -10,13 +10,13 @@ const moment = require('moment')
 function escapeJsHTML(str) {
     return str
             .replace(/\\/g, '\\\\')
-            .replace(/'/g, "\\'")
-            .replace(/"/g, '\\"')
-            .replace(/</g, '\\x3c')
-            .replace(/>/g, '\\x3e')
+            .replace(/&/g, '&amp;')
+            .replace(/'/g, "&#39;")
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
             .replace(/(0x0D)/g, '\r')
             .replace(/(0x0A)/g, '\n')
-            .replace(/&/g, '&amp;');
 }
 
 // get all articles of a thread
