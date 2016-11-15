@@ -38,8 +38,6 @@ router.get('/:board/all', (req, res, next) => {
 
 router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonThreads
-  let offset = parseInt(req.params.offset)
-  let limit = parseInt(req.params.limit)
 
   models.thread.sequelize.query(
     "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC limit $3 offset $2;",
@@ -75,6 +73,7 @@ router.post('/:board', (req, res, next) => {
   let post = req.body.post ? escapeJsHTML(req.body.post) : ''
   let name = req.body.name ? escapeJsHTML(req.body.name) : ''
 
+
   if (req.body.title && req.body.post) {
     models.board.findOne({
       attributes: ['id'],
@@ -84,8 +83,8 @@ router.post('/:board', (req, res, next) => {
     }).then((result) => {
       if (result) {
         models.board.sequelize.query(
-          "insert into threads (title, board_id, create_date, update_date, post, name) value ($1, (select id from boards where title=$2 ), $3, $3, $4, $5)",
-          { bind: [title, board, moment().format(), post, name]}
+          "insert into threads (title, board_id, create_date, update_date, post, name, createdAt, updatedAt) value ($1, (select id from boards where title=$2 ), $3, $3, $4, $5, $3, $3)",
+          { bind: [title, board, moment().format("YYYY-MM-DD HH:mm:ss"), post, name]}
         ).then(() => {
           res.send('ok')
         })
