@@ -5,7 +5,7 @@ const router = express.Router()
 const models = require('../models')
 const moment = require('moment')
 
-// escape of JavaScript and HTML
+// escape JavaScript and HTML
 
 function escapeJsHTML(str) {
     return str
@@ -23,7 +23,7 @@ function escapeJsHTML(str) {
 
 router.get('/:thread_id(\\d+)', (req, res, next) => {
   let jsonArticles
-  let thread_id = parseInt(req.params.thread_id)
+  const thread_id = parseInt(req.params.thread_id)
 
   models.article.findAll({
     where: {
@@ -41,9 +41,9 @@ router.get('/:thread_id(\\d+)', (req, res, next) => {
 
 router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonArticles
-  let thread_id = parseInt(req.params.thread_id)
-  let offset = parseInt(req.params.offset)
-  let limit = parseInt(req.params.limit)
+  const thread_id = parseInt(req.params.thread_id)
+  const offset = parseInt(req.params.offset)
+  const limit = parseInt(req.params.limit)
 
   models.article.findAll({
     where: {
@@ -64,8 +64,8 @@ router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonArticles
-  let thread_id = parseInt(req.params.thread_id)
-  let limit = parseInt(req.params.limit)
+  const thread_id = parseInt(req.params.thread_id)
+  const limit = parseInt(req.params.limit)
 
   models.article.sequelize.query(
     "select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;",
@@ -81,8 +81,8 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 router.post('/:thread_id(\\d+)', (req, res, next) => {
   let thread_id = parseInt(req.body.thread_id)
-  let post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
-  let name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
+  const post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
+  const name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
 
   models.article.create({
     post: post,

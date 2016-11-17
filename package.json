@@ -5,8 +5,8 @@
   "keyword": "thread float type BBS",
   "homepage": "http://aliceriverpark.pw",
   "license": "GPL-3.0",
-  "author": "risugawakoen <@arisugawakoen>(http://aliceriverpark.pw)",
-  "private": false,
+  "author": "arisugawakoen <@arisugawakoen>(http://aliceriverpark.pw)",
+  "private": true,
   "scripts": {
     "start": "PORT=80 node ./bin/www"
   },

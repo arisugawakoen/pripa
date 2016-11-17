@@ -38,8 +38,8 @@ router.get('/:board/all', (req, res, next) => {
 
 router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
   let jsonThreads
-  let offset = parseInt(req.params.offset)
-  let limit = parseInt(req.params.limit)
+  const offset = parseInt(req.params.offset)
+  const limit = parseInt(req.params.limit)
 
   models.thread.sequelize.query(
     "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC limit $3 offset $2;",
@@ -55,7 +55,7 @@ router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 router.get('/id/:threadId(\\d+)', (req, res, next) => {
   let jsonThread
-  let threadId = parseInt(req.params.threadId)
+  const threadId = parseInt(req.params.threadId)
 
   models.thread.sequelize.query(
     "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post, boards.title as board_name from threads left join boards on threads.board_id = boards.id where threads.id = $1",
@@ -70,10 +70,10 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
 // create a new thread
 
 router.post('/:board', (req, res, next) => {
-  let title = req.body.title ? escapeJsHTML(req.body.title) : ''
-  let board = req.body.board ? escapeJsHTML(req.body.board) : ''
-  let post = req.body.post ? escapeJsHTML(req.body.post) : ''
-  let name = req.body.name ? escapeJsHTML(req.body.name) : ''
+  const title = req.body.title ? escapeJsHTML(req.body.title) : ''
+  const board = req.body.board ? escapeJsHTML(req.body.board) : ''
+  const post = req.body.post ? escapeJsHTML(req.body.post) : ''
+  const name = req.body.name ? escapeJsHTML(req.body.name) : ''
 
 
   if (req.body.title && req.body.post) {
