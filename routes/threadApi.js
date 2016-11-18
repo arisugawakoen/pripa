@@ -8,24 +8,25 @@ const moment = require('moment')
 // escape JavaScript and HTML
 
 function escapeJsHTML(str) {
-    return str
-            .replace(/\\/g, '\\\\')
-            .replace(/&/g, '&amp;')
-            .replace(/'/g, "&#39;")
-            .replace(/"/g, '&quot;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/(0x0D)/g, '\r')
-            .replace(/(0x0A)/g, '\n')
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/&/g, '&amp;')
+    .replace(/'/g, '&#39;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/(0x0D)/g, '\r')
+    .replace(/(0x0A)/g, '\n')
 }
 
 // get all threads name
 
-router.get('/:board/all', (req, res, next) => {
+router.get('/:board/all', (req, res) => {
   let jsonThreads
 
   models.thread.sequelize.query(
-    "select threads.id, threads.title from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC;",
+    'select threads.id, threads.title from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC;',
+
     { bind: [req.params.board], type: models.sequelize.QueryTypes.SELECT }
   ).then((threads) => {
     jsonThreads = JSON.stringify(threads)
@@ -36,13 +37,13 @@ router.get('/:board/all', (req, res, next) => {
 
 // get latest threads name and post
 
-router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
+router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res) => {
   let jsonThreads
   const offset = parseInt(req.params.offset)
   const limit = parseInt(req.params.limit)
 
   models.thread.sequelize.query(
-    "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC limit $3 offset $2;",
+    'select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC limit $3 offset $2;',
     { bind: [req.params.board, offset, limit], type: models.sequelize.QueryTypes.SELECT }
   ).then((threads) => {
     jsonThreads = JSON.stringify(threads)
@@ -53,12 +54,12 @@ router.get('/:board/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 // get a thread name and post
 
-router.get('/id/:threadId(\\d+)', (req, res, next) => {
+router.get('/id/:threadId(\\d+)', (req, res) => {
   let jsonThread
   const threadId = parseInt(req.params.threadId)
 
   models.thread.sequelize.query(
-    "select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post, boards.title as board_name from threads left join boards on threads.board_id = boards.id where threads.id = $1",
+    'select threads.id, threads.title, threads.create_date, threads.update_date, threads.name, threads.post, boards.title as board_name from threads left join boards on threads.board_id = boards.id where threads.id = $1',
     { bind: [threadId], type: models.sequelize.QueryTypes.SELECT }
   ).then((thread) => {
     jsonThread = JSON.stringify(thread[0])
@@ -69,7 +70,7 @@ router.get('/id/:threadId(\\d+)', (req, res, next) => {
 
 // create a new thread
 
-router.post('/:board', (req, res, next) => {
+router.post('/:board', (req, res) => {
   const title = req.body.title ? escapeJsHTML(req.body.title) : ''
   const board = req.body.board ? escapeJsHTML(req.body.board) : ''
   const post = req.body.post ? escapeJsHTML(req.body.post) : ''
@@ -85,8 +86,8 @@ router.post('/:board', (req, res, next) => {
     }).then((result) => {
       if (result) {
         models.board.sequelize.query(
-          "insert into threads (title, board_id, create_date, update_date, post, name, createdAt, updatedAt) value ($1, (select id from boards where title=$2 ), $3, $3, $4, $5, $3, $3)",
-          { bind: [title, board, moment().format("YYYY-MM-DD HH:mm:ss"), post, name]}
+          'insert into threads (title, board_id, create_date, update_date, post, name, createdAt, updatedAt) value ($1, (select id from boards where title=$2 ), $3, $3, $4, $5, $3, $3)',
+          { bind: [title, board, moment().format('YYYY-MM-DD HH:mm:ss'), post, name]}
         ).then(() => {
           res.send('ok')
         })

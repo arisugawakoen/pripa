@@ -6,7 +6,7 @@ const models = require('../models')
 
 // get all boards name
 
-router.get('/all', (req, res, next) => {
+router.get('/all', (req, res) => {
   let jsonBoards
 
   models.board.findAll({

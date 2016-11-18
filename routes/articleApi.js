@@ -8,20 +8,20 @@ const moment = require('moment')
 // escape JavaScript and HTML
 
 function escapeJsHTML(str) {
-    return str
-            .replace(/\\/g, '\\\\')
-            .replace(/&/g, '&amp;')
-            .replace(/'/g, "&#39;")
-            .replace(/"/g, '&quot;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/(0x0D)/g, '\r')
-            .replace(/(0x0A)/g, '\n')
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/&/g, '&amp;')
+    .replace(/'/g, '&#39;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/(0x0D)/g, '\r')
+    .replace(/(0x0A)/g, '\n')
 }
 
 // get all articles of a thread
 
-router.get('/:thread_id(\\d+)', (req, res, next) => {
+router.get('/:thread_id(\\d+)', (req, res) => {
   let jsonArticles
   const thread_id = parseInt(req.params.thread_id)
 
@@ -39,7 +39,7 @@ router.get('/:thread_id(\\d+)', (req, res, next) => {
 
 // get limited and offset (head)  articles of a thread
 
-router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
+router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res) => {
   let jsonArticles
   const thread_id = parseInt(req.params.thread_id)
   const offset = parseInt(req.params.offset)
@@ -62,13 +62,13 @@ router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 // get latest articles of a thread
 
-router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
+router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res) => {
   let jsonArticles
   const thread_id = parseInt(req.params.thread_id)
   const limit = parseInt(req.params.limit)
 
   models.article.sequelize.query(
-    "select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;",
+    'select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;',
     { bind: [thread_id, limit], type: models.sequelize.QueryTypes.SELECT }
   ).then((articles) => {
     jsonArticles = JSON.stringify(articles)
@@ -79,7 +79,7 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 // post an article
 
-router.post('/:thread_id(\\d+)', (req, res, next) => {
+router.post('/:thread_id(\\d+)', (req, res) => {
   let thread_id = parseInt(req.body.thread_id)
   const post = req.body.post ? escapeJsHTML(req.body.post) : ''
   const name = req.body.name ? escapeJsHTML(req.body.name) : ''
@@ -101,9 +101,9 @@ router.post('/:thread_id(\\d+)', (req, res, next) => {
       id: thread_id
     }
   }).then(() => {
-    res.json({ message: 'ok' });
+    res.json({ message: 'ok' })
   }).catch((e) => {
-    res.json({ message: 'ng' });
+    res.json({ message: 'ng' })
     console.log(e)
   })
 })
