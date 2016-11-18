@@ -81,8 +81,8 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res, next) => {
 
 router.post('/:thread_id(\\d+)', (req, res, next) => {
   let thread_id = parseInt(req.body.thread_id)
-  const post = req.body.post ? escapeJsHTML(req.body.post) : req.body.post
-  const name = req.body.name ? escapeJsHTML(req.body.name) : req.body.name
+  const post = req.body.post ? escapeJsHTML(req.body.post) : ''
+  const name = req.body.name ? escapeJsHTML(req.body.name) : ''
 
   models.article.create({
     post: post,

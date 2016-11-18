@@ -55,10 +55,12 @@
     }
     
     add(e) {
-      self.postArticle(opts.id, this.replyName, this.article)
-      this.replyName = this.article = ''
-      document.querySelector('textarea.textarea.is-info').value = ''
-      document.querySelector('input.input.is-info').value = ''
+      if (this.article.length) {
+        self.postArticle(opts.id, this.replyName, this.article)
+        this.replyName = this.article = ''
+        document.querySelector('textarea.textarea.is-info').value = ''
+        document.querySelector('input.input.is-info').value = ''
+      }
     }
 
 </article-post>
