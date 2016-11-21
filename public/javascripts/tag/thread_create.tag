@@ -5,7 +5,7 @@
     <div class="control is-horizonral">
       <div class="control has-addons">
         <input class="input is-expanded is-danger" type="text"
-         placeholder="title" onkeyup={ keyupTitle }>
+         placeholder="title" onchange={ keyupTitle }>
         <input class="input is-danger" type="text" placeholder="Name"
          onchange={ keyupName }>
         <button class="button is-danger">スレッド作成</button>
@@ -41,8 +41,6 @@
           })
         }).then(function() {
           el.trigger('allThreadReload')
-        }).then(function() {
-          self.update()
         })
       } else {
         return false

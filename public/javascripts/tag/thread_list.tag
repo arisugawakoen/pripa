@@ -34,7 +34,7 @@
     var results = []
     var fetchUrl = './'
     var offset = 0
-    var threadLimit = 10
+    var threadLimit = 20
     var articleLimit = 10
     var self = this
 

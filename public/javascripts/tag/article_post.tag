@@ -38,8 +38,6 @@
           el.trigger('thisArticleReload', threadId)
         }).then(function() {
           el.trigger('allThreadReload')
-        }).then(function() {
-          self.update()
         })
       } else {
         return false
