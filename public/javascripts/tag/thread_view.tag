@@ -12,7 +12,7 @@
       <br>
       <small>
         <strong>{ result.name }</strong>
-        { moment.utc(result.create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
+        { moment.utc(result.create_date).format('YYYY-MM-DD ddd HH:mm:ss') }
       </small>
     </div>
 

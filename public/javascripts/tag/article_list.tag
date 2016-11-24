@@ -7,7 +7,7 @@
       <br>
       <small>
         <strong>{ name }</strong>
-        { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
+        { moment.utc(create_date).format('YYYY-MM-DD ddd HH:mm:ss') }
       </small>
     </div>
   </div>
