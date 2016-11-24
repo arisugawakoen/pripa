@@ -1,6 +1,6 @@
 <thread-create>
   <form name="thread_create" style="margin-bottom: 1em;"
-   if={ flagThreadCreate }>
+   onsubmit={ add } if={ flagThreadCreate }>
     <div>
     <div class="control is-horizonral">
       <div class="control has-addons">

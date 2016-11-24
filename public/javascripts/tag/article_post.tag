@@ -1,7 +1,7 @@
 <article-post>
 
   <footer style="padding: 1em;">
-    <form name="article_post">
+    <form name="article_post" onsubmit={ add }>
       <div class="control is-horizontal">
         <div class="control">
           <textarea class="textarea is-info" placeholder="Article"
