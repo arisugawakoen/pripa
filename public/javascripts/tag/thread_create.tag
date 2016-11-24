@@ -1,5 +1,5 @@
 <thread-create>
-  <form name="thread_create" onsubmit={ add } style="margin-bottom: 1em;"
+  <form name="thread_create" style="margin-bottom: 1em;"
    if={ flagThreadCreate }>
     <div>
     <div class="control is-horizonral">
@@ -8,7 +8,9 @@
          placeholder="title" onchange={ keyupTitle }>
         <input class="input is-danger" type="text" placeholder="Name"
          onchange={ keyupName }>
-        <button class="button is-danger">スレッド作成</button>
+        <button class="button is-danger" onclick={ add } type="button">
+          スレッド作成
+        </button>
       </div>
     </div>
     <div class="control is-horizontal">

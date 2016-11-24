@@ -1,7 +1,7 @@
 <article-post>
 
   <footer style="padding: 1em;">
-    <form name="article_post" onsubmit={ add }>
+    <form name="article_post">
       <div class="control is-horizontal">
         <div class="control">
           <textarea class="textarea is-info" placeholder="Article"
@@ -12,7 +12,9 @@
         <div class="control has-addons">
           <input class="input is-info" type="text" placeholder="Name"
             name="name" onchange={ inputName }>
-          <button class="button is-info">Post</button>
+          <button class="button is-info" onclick={ add } type="button">
+            Post
+          </button>
         </div>
       </div>
     </form>
@@ -22,7 +24,7 @@
     var self = this
 
     postArticle(threadId, name, post) {
-      if (post.length) {
+      if (post) {
         fetch(fetchUrl + 'articles/' + threadId, {
           method: 'POST',
           headers: {
@@ -53,7 +55,7 @@
     }
     
     add(e) {
-      if (this.article.length) {
+      if (this.article) {
         self.postArticle(opts.id, this.replyName, this.article)
         this.replyName = this.article = ''
         document.querySelector('textarea.textarea.is-info').value = ''

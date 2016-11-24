@@ -1,7 +1,7 @@
 <raw>
   <span></span>
 
-    this.on('update', function() {
+    this.on('*', function() {
       addAutoLink(string) {
         return string.replace(
           /((https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+))/gi,

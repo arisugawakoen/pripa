@@ -3,12 +3,12 @@
    style="margin-bottom: 1em;>
     <div class="control has-addons">
       <input class="input is-expanded is-primary" type="text"
-       placeholder="Search" name="input" onchange={ edit }>
-      <button class="button is-primary">検索</button>
+       value={ opts.query } placeholder="Search" name="q" onchange={ edit }>
+      <button class="button is-primary" type="button" onclick={ ask }>
+        検索
+      </button>
     </div>
   </form>
-
-    if (opts.query) this.input.value = opts.query
 
     edit(e) {
       this.text = e.target.value

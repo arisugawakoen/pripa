@@ -8,11 +8,11 @@
       <p class="card-header-title">スレッドタイトル検索結果</p>
     </header>
     <div class="card-content">
-      <div class="content" if={ resultsThread.length }>
+      <div class="content" if={ isResultThread }>
         <div each={ resultsThread }>
             <a href="./{ board_name }.html">{ board_name }</a> :
             <a href="./thread.html#{ thread_id }">{ thread_title }</a>
-            <span if={ name.length }>name : { name }</span>
+            <span if={ name }>name : { name }</span>
           <small>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
@@ -30,14 +30,14 @@
       <p class="card-header-title">スレッド先頭投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div if={ resultsTop.length }>
+      <div if={ isResultTop }>
         <div class="content" each={ resultsTop }>
           <raw content={ post }></raw>
           <br>
           <small>
             <a href="./{ board_name }.html">{ board_name }</a> :
             <a href="./thread.html#{ thread_id }">{ thread_title }</a>
-            <span if={ name.length }>name : { name }</span>
+            <span if={ name }>name : { name }</span>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>
@@ -54,14 +54,14 @@
       <p class="card-header-title">投稿検索結果</p>
     </header>
     <div class="card-content">
-      <div if={ results.length }>
+      <div if={ isResult }>
         <div class="content" each={ results }>
           <raw content={ post }></raw>
           <br>
           <small>
             <a href="./{ board_name }.html">{ board_name }</a> :
             <a href="./thread.html#{ thread_id }">{ thread_title }</a>
-            <span if={ name.length }>name : { name }</span>
+            <span if={ name }>name : { name }</span>
             { moment.utc(create_date).format('YYYY-MM-DD dddd HH:mm:ss') }
           </small>
         </div>

@@ -17,7 +17,7 @@
     </ul>
   </div>
 
-    this.on('update', function() {
+    this.on('*', function() {
       tabId = opts.id || threadId
       tabAction = globalAction
     })

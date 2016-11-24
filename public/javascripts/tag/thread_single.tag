@@ -15,7 +15,7 @@
     globalId = 0
     globalAction = ''
 
-    riot.route(function(id, action) {
+    route(function(id, action) {
       globalId = id      
       globalAction = action
 
@@ -24,6 +24,6 @@
       el.trigger('threadViewRooter', id, action)
     })
 
-    riot.route.start(true)
+    route.start(true)
 
 </thread-single>
