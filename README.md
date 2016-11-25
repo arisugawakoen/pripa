@@ -2,7 +2,7 @@
 
 Project: rest in peace, Amezo
 
-## 概要
+### 概要
 
 Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。  
 Node.jsが動作する環境が必要です。  
