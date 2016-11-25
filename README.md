@@ -4,9 +4,9 @@ Project: rest in peace, Amezo
 
 ## 概要
 
-Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。
+Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。  
 Node.jsが動作する環境が必要です。  
-デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。
+デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。  
 [実動環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
 
 ## Description
