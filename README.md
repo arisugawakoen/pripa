@@ -2,26 +2,25 @@
 
 Project: rest in peace, Amezo
 
-## Description
+## 概要
 
 Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。
+Node.jsが動作する環境が必要です。  
+デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。
+[実動環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
+
+## Description
 
 This is a thread float type bulletin board with GPL-3.0 license using Riot.js and Node.js.
 
 ## Demo
 
-[実動環境 Production environment](http://aliceriverpark.pw/pripa/)
-
+[Production environment](http://aliceriverpark.pw/pripa/)
 
 ## Requirement
 
-Node.jsが動作する環境が必要です。  
-デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。  
-
 We need environment to run Node.js.
 Although the default RDB is MariaDB, I think that it will work with other RDB with a little fix.
-
-[実動環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
 
 [Production environment] (http://aliceriverpark.pw/pripa/) uses [h2o] (https://h2o.examp1e.net) as a reverse proxy, but it is not particularly mandatory only to make it work.
 
@@ -33,8 +32,6 @@ Although the default RDB is MariaDB, I think that it will work with other RDB wi
     cp test.html {bulletin board name}.html // test.html as a template and design a new bulletin board
 
 #### Posting, thread creation, search
-
-見ればわかると思います。
 
 I think that it will understand.
 
