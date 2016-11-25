@@ -6,26 +6,37 @@ Project: rest in peace, Amezo
 
 Riot.jsでNode.jsでGPL-3.0なスレッドフロート型掲示板です。
 
+This is a thread float type bulletin board with GPL-3.0 license using Riot.js and Node.js.
+
 ## Demo
 
-[実動環境](http://aliceriverpark.pw/pripa/)
+[実動環境 Production environment](http://aliceriverpark.pw/pripa/)
+
 
 ## Requirement
 
 Node.jsが動作する環境が必要です。  
 デフォルトのRDBはMariaDBですが、少しの修正で他のRDBでも動作すると思います。  
+
+We need environment to run Node.js.
+Although the default RDB is MariaDB, I think that it will work with other RDB with a little fix.
+
 [実動環境](http://aliceriverpark.pw/pripa/)は[h2o](https://h2o.examp1e.net)をリバースプロキシとしていますが、動作させるだけなら特に必須ではありません。  
+
+[Production environment] (http://aliceriverpark.pw/pripa/) uses [h2o] (https://h2o.examp1e.net) as a reverse proxy, but it is not particularly mandatory only to make it work.
 
 ## Usage
 
-#### 新規掲示板作成
+#### Create new bulletin board
 
-    node bin/create_board {掲示板名} // 新規掲示板のレコードが作成される  
-    cp test.html {掲示板名}.html // test.htmlを雛形として新規掲示板をデザインする
+    node bin/create_board {bulletin board name} // a new bulletin board record is created  
+    cp test.html {bulletin board name}.html // test.html as a template and design a new bulletin board
 
-#### 投稿、スレッド作成、検索
+#### Posting, thread creation, search
 
 見ればわかると思います。
+
+I think that it will understand.
 
 ## Install
 
