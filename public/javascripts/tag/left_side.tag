@@ -33,12 +33,12 @@
       <li><a href="https://nodejs.org/ja/">Node.js</a></li>
       <li><a href="http://expressjs.com/ja/">Express</a></li>
       <li><a href="http://sequelizejs.com">Sequelize</a></li>
-      <li><a href="http://riotjs.com/ja/">Riot.js</a></li>
-      <li><a href="http://bulma.io/">Bulma</a></li>
+      <li><a href="http://riotjs.com">Riot.js</a></li>
+      <li><a href="http://bulma.io">Bulma</a></li>
       <li><a href="https://github.github.io/fetch/">Fetch</a></li>
-      <li><a href="http://momentjs.com/">Moment.js</a></li>
-      <li><a href="https://h2o.examp1e.net/">H2O</a></li>
-      <li><a href="https://www.conoha.jp/">ConoHa</a></li>
+      <li><a href="http://momentjs.com">Moment.js</a></li>
+      <li><a href="https://h2o.examp1e.net">H2O</a></li>
+      <li><a href="https://www.conoha.jp">ConoHa</a></li>
     </ul>
 
   </aside>
