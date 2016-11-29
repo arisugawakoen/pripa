@@ -10,7 +10,7 @@
     <div class="content">
       <raw content={ result.post }></raw>
       <br>
-      <small>
+      <small style="color: #4a4a4a">
         <strong>{ result.name }</strong>
         { moment.utc(result.create_date).format('YYYY-MM-DD ddd HH:mm:ss') }
       </small>

@@ -5,7 +5,7 @@
     <div class="content" each={ articleListResults }>
       <raw content={ post }></raw>
       <br>
-      <small>
+      <small style="color: #4a4a4a;">
         <strong>{ name }</strong>
         { moment.utc(create_date).format('YYYY-MM-DD ddd HH:mm:ss') }
       </small>

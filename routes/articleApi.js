@@ -91,7 +91,7 @@ router.post('/:thread_id(\\d+)', (req, res) => {
     thread_id : req.body.thread_id
   }).then(() => {
   }).catch((e) => {
-    console.log(e)
+    console.error(e)
   })
 
   models.thread.update({
@@ -104,7 +104,7 @@ router.post('/:thread_id(\\d+)', (req, res) => {
     res.json({ message: 'ok' })
   }).catch((e) => {
     res.json({ message: 'ng' })
-    console.log(e)
+    console.error(e)
   })
 })
     
