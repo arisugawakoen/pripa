@@ -38,7 +38,6 @@
           })
         }).then(function() {
           el.trigger('thisArticleReload', threadId)
-        }).then(function() {
           el.trigger('allThreadReload')
         })
       } else {
