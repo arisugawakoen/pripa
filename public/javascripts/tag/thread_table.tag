@@ -5,14 +5,14 @@
       <tr>
         <th>スレッドタイトル</th>
         <th>作成日時</th>
-        <th>更新日時</th>
+        <th>最新更新日時</th>
       </tr>
     </thead>
     <tfoot>
       <tr>
         <th>Thread title</th>
-        <th>Create date</th>
-        <th>Update date</th>
+        <th>Created date</th>
+        <th>Last update date</th>
       </tr>
     </tfoot>
     <tbody>
