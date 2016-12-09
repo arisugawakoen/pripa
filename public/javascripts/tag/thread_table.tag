@@ -1,5 +1,5 @@
 <thread-table>
-  <table class="table" style="margin-bottom: 1em;"
+  <table class="table is-narrow" style="margin-bottom: 1em;"
     if={ flagThreadAll }>
     <thead>
       <tr>
