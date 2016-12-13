@@ -1,7 +1,7 @@
 <raw>
   <span></span>
 
-    this.on('*', function() {
+    this.on('mount', function() {
       addAutoLink(string) {
         return string.replace(
           /((https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+))/gi,

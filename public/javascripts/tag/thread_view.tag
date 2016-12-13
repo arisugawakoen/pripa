@@ -32,6 +32,7 @@
         }).then(function(json) {
           self.result = JSON.parse(json)
         }).then(function() {
+          riot.mount('raw')      
           self.update()
         })
       }
