@@ -8,7 +8,7 @@
 
   </div>
 
-    threadId = 0
+    threadId = opts.id || 0
     var self = this
     el = riot.observable()
 
