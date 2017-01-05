@@ -1,8 +1,8 @@
 <thread-list>
 
-  <div each={ results }>
+  <div each={ results } class="box">
     <div class="card is-fullwidth"
-     style="margin-bottom: 1em; box-shadow: 0 0 0;">
+     style="box-shadow: 0 0 0;">
       <header class="card-header">
         <p class="card-header-title">
           <a href="./thread.html#{ id }/top">{ title }</a>
@@ -54,5 +54,16 @@
     el.on('allThreadReload', function() {
       self.listThread()
     })
+
+  <style scoped>
+
+    .box {
+      word-wrap: break-word;
+      line-height: 2;
+      font-size: 1.1em;
+      letter-spacing:0.05em;
+    }
+
+  </style>
 
 </thread-list>

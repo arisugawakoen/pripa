@@ -2,8 +2,8 @@
 
   <search-form query={ urlQuery }></search-form>
 
-  <div class="card is-fullwidth"
-   style="margin-bottom: 1em; box-shadow: 0 0 0;">
+  <div class="box">
+  <div class="card is-fullwidth" style="box-shadow: 0 0 0;">
     <header class="card-header">
       <p class="card-header-title">スレッドタイトル検索結果</p>
     </header>
@@ -23,9 +23,10 @@
       </div>
     </div>
   </div>
+  </div>
 
-  <div class="card is-fullwidth"
-   style="margin-bottom: 1em; box-shadow: 0 0 0;">
+  <div class="box">
+  <div class="card is-fullwidth" style="box-shadow: 0 0 0;">
     <header class="card-header">
       <p class="card-header-title">スレッド先頭投稿検索結果</p>
     </header>
@@ -47,9 +48,10 @@
       </div>
     </div>
   </div>
+  </div>
 
-  <div class="card is-fullwidth"
-   style="margin-bottom: 1em; box-shadow: 0 0 0;">
+  <div class="box">
+  <div class="card is-fullwidth" style="box-shadow: 0 0 0;">
     <header class="card-header">
       <p class="card-header-title">投稿検索結果</p>
     </header>
@@ -70,6 +72,7 @@
         検索結果なし
       </div>
     </div>
+  </div>
   </div>
 
     var results = []
@@ -156,5 +159,16 @@
       searchThreads(urlQuery)
       searchTop(urlQuery)
     }
+
+  <style scoped>
+
+    .box {
+      word-wrap: break-word;
+      line-height: 2;
+      font-size: 1.1em;
+      letter-spacing:0.05em;
+    }
+
+  </style>
 
 </search-action>

@@ -1,11 +1,13 @@
 <thread-single>
 
-  <div class="card is-fullwidth" style="margin-bottom: 1em; box-shadow: 0 0 0;">
+  <div class="box">
+    <div class="card is-fullwidth" style="box-shadow: 0 0 0;">
 
 <thread-view id={ threadId }></thread-view>
 <tab-list id={ threadId }></tab-list>
 <article-post id={ threadId }></article-post>
 
+    </div>
   </div>
 
     threadId = opts.id || 0
@@ -25,5 +27,16 @@
     })
 
     route.start(true)
+
+  <style scoped>
+
+    .box {
+      word-wrap: break-word;
+      line-height: 2;
+      font-size: 1.1em;
+      letter-spacing:0.05em;
+    }
+
+  </style>
 
 </thread-single>
