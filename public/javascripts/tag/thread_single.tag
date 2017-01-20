@@ -32,9 +32,8 @@
 
     .box {
       word-wrap: break-word;
-      line-height: 2;
+      line-height: 1.8;
       font-size: 1.1em;
-      letter-spacing:0.05em;
     }
 
   </style>
