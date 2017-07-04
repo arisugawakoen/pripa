@@ -29,7 +29,7 @@ router.get('/:thread_id(\\d+)', (req, res) => {
     where: {
       thread_id: thread_id
     },
-    attributes: ['id', 'post', 'thread_id', 'create_date', 'name']
+    attributes: ['id', 'post', 'thread_id', 'create_date', 'name', 'res_number']
   }).then((articles) => {
     jsonArticles = JSON.stringify(articles)
   }).then(() => {
@@ -52,7 +52,7 @@ router.get('/:thread_id(\\d+)/:offset(\\d+)/:limit(\\d+)', (req, res) => {
     offset: offset,
     limit: limit,
     order: 'id ASC',
-    attributes: ['id', 'post', 'thread_id', 'create_date', 'name']
+    attributes: ['id', 'post', 'thread_id', 'create_date', 'name', 'res_number']
   }).then((articles) => {
     jsonArticles = JSON.stringify(articles)
   }).then(() => {
@@ -68,7 +68,7 @@ router.get('/:thread_id(\\d+)/:limit(\\d+)', (req, res) => {
   const limit = parseInt(req.params.limit)
 
   models.article.sequelize.query(
-    'select * from (select id, post, thread_id, create_date, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;',
+    'select * from (select id, post, thread_id, create_date, res_number, name from articles where thread_id=$1 order by id DESC limit $2) as n order by id ASC;',
     { bind: [thread_id, limit], type: models.sequelize.QueryTypes.SELECT }
   ).then((articles) => {
     jsonArticles = JSON.stringify(articles)
@@ -84,6 +84,17 @@ router.post('/:thread_id(\\d+)', (req, res) => {
   const post = req.body.post ? escapeJsHTML(req.body.post) : ''
   const name = req.body.name ? escapeJsHTML(req.body.name) : ''
 
+  models.article.sequelize.query(
+    'insert into articles (post, name, create_date, thread_id, res_number, createdAt, updatedAt) value ($1, $2, $3, $4, (select latest_res_number from threads where id=$4), $3, $3)',
+    { bind: [post, name, moment().format('YYYY-MM-DD HH:mm:ss'), thread_id] }
+  ).then(() => {
+    models.thread.sequelize.query(
+      'UPDATE threads SET latest_res_number = latest_res_number + 1 where id = $1;',
+      { bind: [ thread_id ] }
+    )
+  })
+
+	  /*
   models.article.create({
     post: post,
     name: name,
@@ -93,6 +104,7 @@ router.post('/:thread_id(\\d+)', (req, res) => {
   }).catch((e) => {
     console.error(e)
   })
+*/
 
   models.thread.update({
     update_date: moment().add(9, 'h')

@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false
     },
+    latest_res_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     post: {
       type: DataTypes.TEXT,
       allowNull: false
