@@ -92,19 +92,12 @@ router.post('/:thread_id(\\d+)', (req, res) => {
       'UPDATE threads SET latest_res_number = latest_res_number + 1 where id = $1;',
       { bind: [ thread_id ] }
     )
-  })
-
-	  /*
-  models.article.create({
-    post: post,
-    name: name,
-    create_date: moment().add(9, 'h'),
-    thread_id : req.body.thread_id
   }).then(() => {
+    res.json({ message: 'ok' })
   }).catch((e) => {
+    res.json({ message: 'ng' })
     console.error(e)
   })
-*/
 
   models.thread.update({
     update_date: moment().add(9, 'h')
@@ -112,11 +105,6 @@ router.post('/:thread_id(\\d+)', (req, res) => {
     where: {
       id: thread_id
     }
-  }).then(() => {
-    res.json({ message: 'ok' })
-  }).catch((e) => {
-    res.json({ message: 'ng' })
-    console.error(e)
   })
 })
     

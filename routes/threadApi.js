@@ -26,7 +26,6 @@ router.get('/:board/all', (req, res) => {
 
   models.thread.sequelize.query(
     'select threads.id, threads.title, threads.latest_res_number, threads.create_date, threads.update_date from threads left join boards on threads.board_id = boards.id where boards.title = $1 order by threads.update_date DESC;',
-
     { bind: [req.params.board], type: models.sequelize.QueryTypes.SELECT }
   ).then((threads) => {
     jsonThreads = JSON.stringify(threads)
