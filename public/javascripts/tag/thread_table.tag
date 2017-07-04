@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>スレッドタイトル</th>
+        <th>レス数</th>
         <th>作成日時</th>
         <th>最新更新日時</th>
       </tr>
@@ -11,6 +12,7 @@
     <tfoot>
       <tr>
         <th>Thread title</th>
+        <th>Res number</th>
         <th>Created date</th>
         <th>Last update date</th>
       </tr>
@@ -18,6 +20,7 @@
     <tbody>
       <tr each={ results }>
         <td><a href="./thread.html#{ id }">{ title }</a></td>
+        <td>{ --latest_res_number }</td>
         <td>{ moment.utc(create_date).format('YYYY-MM-DD ddd HH:mm:ss') }</td>
         <td>{ moment.utc(update_date).format('YYYY-MM-DD ddd HH:mm:ss') }</td>
       </tr>
